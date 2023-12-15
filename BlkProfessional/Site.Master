@@ -1,0 +1,142 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="BlkProfessional.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="es">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+    body {
+        margin: 0
+    }
+
+    .navbar-right {
+    float: right !important;
+    margin-right: 0px;
+}
+    .icon-bar {
+        width: 90px;
+        background-color: #333333;
+    }
+
+        .icon-bar a {
+            display: block;
+            text-align: center;
+            padding: 16px;
+            transition: all 0.3s ease;
+            color: white;
+            font-size: 36px;
+        }
+
+            .icon-bar a:hover {
+                background-color: #f17721;
+            }
+
+    .active {
+        background-color: #f17721;
+    }
+    #MenuLateral{
+        height: 250vh;
+    }
+</style>
+
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+           
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                              <img width="300" height="55" src="https://bulkmatic.com.co/wp-content/uploads/2023/01/logo-color.webp" class="attachment-full size-full wp-image-23 entered lazyloaded" alt="" data-lazy-srcset="https://bulkmatic.com.co/wp-content/uploads/2023/01/logo-color.webp 324w, https://bulkmatic.com.co/wp-content/uploads/2023/01/logo-color-300x60.webp 300w" data-lazy-sizes="(max-width: 324px) 100vw, 324px" data-lazy-src="https://bulkmatic.com.co/wp-content/uploads/2023/01/logo-color.webp" data-ll-status="loaded" sizes="(max-width: 324px) 100vw, 324px" srcset="https://bulkmatic.com.co/wp-content/uploads/2023/01/logo-color.webp 324w, https://bulkmatic.com.co/wp-content/uploads/2023/01/logo-color-300x60.webp 300w">
+                    <a class="navbar-brand" runat="server" style="font-family: Arial; font-weight: bold; color: white" href="~/">
+              
+                   
+
+                    </a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+               
+                        <%--   <li><a runat="server" href="~/About"></a></li>
+                        <li><a runat="server" href="~/Contact"></a></li>--%>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mi Perfil</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Salir </a></li>
+                    </ul>
+                </div>
+            
+        </div>
+        <div style="display: inline-flex;">
+            <div id="MenuLateral" class="icon-bar">
+                  
+                <a class="active" title="Mis Compromisos"  href="#"><i class="fa fa-home"></i> </a>
+                <a href="Forms/TalentoHumano/FrmTarea.aspx"  title="Seguimiento"><i class="fa fa-university"></i></a>
+               <%-- <a href="FrmTrazabilidad.aspx" style="font-size: 12px;">Informe trazabilidad</a>
+                <a href="FrmInformeContratos.aspx" style="font-size: 12px;">Informe de Contratos</a>
+                <a href="FrmInventario.aspx" style="font-size: 12px;">Informe Liquidacion Inventario</a>
+                <a href="FrmInventarioLote" style="font-size: 12px;">Informe Liquidacion Inventario por Producto</a>
+                <a href="FrmInventarioProducto" style="font-size: 12px;">Informe Liquidacion Inventario por Lote</a>
+                <a href="FrmInventarioGranel" style="font-size: 12px;">Informe Granel</a>
+                <a href="#" style="font-size: 12px;">Informe Auditoria Inventario</a>
+                <a href="#" style="font-size: 12px;">Cerrar Sesion</a>--%>
+
+
+            </div>
+
+     
+
+            <div class="container body-content">
+
+
+
+
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+
+                <hr />
+                <footer>
+
+                    <p style="text-align: center;">&copy; <%: DateTime.Now.Year %> - Bulkmatic Professional</p>
+                </footer>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
