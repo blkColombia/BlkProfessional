@@ -9,7 +9,7 @@
     <div class="formularios">
          <div class="row">
                 <div class="col">
-                 <h5 style="padding:30px;text-align: right;color:orange; font-weight:bold; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"> << Modulo Direccion Gestion Humana</h5>
+                    <asp:LinkButton runat="server" ID="lnkMenu" OnClick="lnkMenu_Click" ><h5 style="padding:30px;text-align: left;color:orange; font-weight:bold; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Menu Principal >>  Modulo Direccion Gestion Humana</h5></asp:LinkButton>
                  </div>
              </div>
         <div class="row">
@@ -45,9 +45,10 @@
                                     <asp:BoundField DataField="CargoResponsable" HeaderText="Cargo" SortExpression="Cargo" />
                                     <asp:BoundField DataField="CBResultadosExcelentes" HeaderText="Resultado a la excelencia" SortExpression="Resultado a la excelencia" />
                                      <asp:BoundField DataField="EstadoTareaResult" HeaderText="Estado" SortExpression="Estado" />
-                                    <asp:BoundField DataField="FechaCierreResult" HeaderText="Servicio al Cliente" SortExpression="Servicio al Cliente" />
-                                    <asp:BoundField DataField="FechaCierreSC" HeaderText="Fecha Cierre" SortExpression="Fecha Cierre" />
+                                    <asp:BoundField DataField="FechaCierreResult" HeaderText="Fecha Cierre" SortExpression="Servicio al Cliente" />
+                                    <asp:BoundField DataField="CBServicioalCliente" HeaderText="Servicio al cliente" SortExpression="Fecha Cierre" />
                                     <asp:BoundField DataField="EstadoTareaSC" HeaderText="Estado" SortExpression="Estado" />
+                                     <asp:BoundField DataField="FechaCierreSC" HeaderText="FEcha Cierre" SortExpression="Estado" />
                                     <asp:TemplateField HeaderText="Acciones">
                                         <ItemTemplate>
                                             <!-- Agrega aquí tus iconos y lógica -->

@@ -45,9 +45,15 @@
     <Compile Include="Employees.cs" />
     <Compile Include="EmployeesCollection.cs" />
     <Compile Include="GenericSortList.cs" />
+    <Compile Include="GFCierreFinanciero.cs" />
+    <Compile Include="GFCierreFinancieroCollection.cs" />
+    <Compile Include="GFCierreFinancieroDetalle.cs" />
+    <Compile Include="GFCierreFinancieroDetalleCollection.cs" />
     <Compile Include="ItemLedgerEntry.cs" />
     <Compile Include="ItemLedgerEntryCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Weekly.cs" />
+    <Compile Include="WeeklyCollection.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

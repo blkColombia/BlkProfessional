@@ -24,8 +24,9 @@ namespace BlkProfessional.Forms.TalentoHumano
                     // Agrega más empleados según sea necesario
                 };
 
-              
+                string usuario = Request.QueryString["usuario"];
                 Employees obj = new Employees();
+                obj.IdentificationNumber = usuario;
                 DataTable dtb = Employess_BRL.SelectTable(obj,1);                
                 // Vincula el GridView a la lista de empleados
                 GridViewEmpleados.DataSource = dtb;
@@ -40,7 +41,8 @@ namespace BlkProfessional.Forms.TalentoHumano
             {
                 // Aquí puedes obtener el CommandArgument que es el IdTarea
                 int idTarea = Convert.ToInt32(e.CommandArgument);
-                Response.Redirect($"FrmTareaDetalle.aspx?IdTarea={idTarea}");
+                string usuario = Request.QueryString["usuario"];
+                Response.Redirect($"FrmTareaDetalle.aspx?usuario={usuario}&IdTarea={idTarea}");
                 // Puedes realizar acciones adicionales aquí según el IdTarea seleccionado
                 // Por ejemplo, puedes redirigir a una nueva página o realizar alguna lógica específica.
             }
@@ -51,6 +53,14 @@ namespace BlkProfessional.Forms.TalentoHumano
             public int Id { get; set; }
             public string Nombre { get; set; }
             public string Cargo { get; set; }
+        }
+
+      
+
+        protected void lnkMenu_Click(object sender, EventArgs e)
+        {
+            string usuario = Request.QueryString["usuario"];
+            Response.Redirect($"~/Forms/MainMenu/FrmMainMenu.aspx?usuario={usuario}");
         }
     }
 }

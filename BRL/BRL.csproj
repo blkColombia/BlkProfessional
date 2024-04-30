@@ -42,8 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Employess_BRL.cs" />
+    <Compile Include="GFCierreFinancieroDetalle_BRL.cs" />
+    <Compile Include="GFCierreFinanciero_BRL.cs" />
     <Compile Include="ItemLedgerEntry_BRL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Weekly_BRL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

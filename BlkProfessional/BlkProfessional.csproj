@@ -217,24 +217,64 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Forms\Financiera\CEDIS\FrmCierreCediAlm.aspx" />
+    <Content Include="Forms\Financiera\CEDIS\FrmCierreCedis.aspx" />
+    <Content Include="Forms\Financiera\CEDIS\FrmCierreCedisDetalle.aspx" />
+    <Content Include="Forms\Financiera\CEDIS\FrmLiquidacionAlmTercero.aspx" />
+    <Content Include="Forms\Financiera\FrmCierreBarranca.aspx" />
+    <Content Include="Forms\Financiera\FrmCierreBarrancaAlm.aspx" />
+    <Content Include="Forms\Financiera\FrmCierreBarrancaDetalle.aspx" />
+    <Content Include="Forms\Financiera\FrmCierreWeekly.aspx" />
+    <Content Include="Forms\Financiera\FrmIngresosBlk.aspx" />
+    <Content Include="Forms\Financiera\FrmLiquidacionAlmCedi.aspx" />
+    <Content Include="Forms\Financiera\FrmLiquidacionEnsacado.aspx" />
     <Content Include="Forms\MainMenu\FrmMainMenu.aspx" />
+    <Content Include="Forms\MainMenu\FrmMenuFinanciera.aspx" />
+    <Content Include="Forms\MainMenu\FrmMenuOperaciones.aspx" />
+    <Content Include="Forms\MainMenu\FrmMenuPrincipal.aspx" />
+    <Content Include="Forms\MainMenu\FrmMenuSAC.aspx" />
+    <Content Include="Forms\Operaciones\FrmAlmacenamientoDescarga.aspx" />
+    <Content Include="Forms\Operaciones\FrmInformeCantidadITR.aspx" />
     <Content Include="Forms\Operaciones\FrmInformeContratos.aspx" />
+    <Content Include="Forms\Operaciones\FrmInformeDespachos.aspx" />
+    <Content Include="Forms\Operaciones\FrmInformeHoras.aspx" />
+    <Content Include="Forms\Operaciones\FrmInformeLiquidacionMes.aspx" />
+    <Content Include="Forms\Operaciones\FrmInformeReprogramacion.aspx" />
+    <Content Include="Forms\Operaciones\FrmInformeTolvas.aspx" />
     <Content Include="Forms\Operaciones\FrmInventario.aspx" />
     <Content Include="Forms\Operaciones\FrmInventarioGranel.aspx" />
     <Content Include="Forms\Operaciones\FrmInventarioLote.aspx" />
+    <Content Include="Forms\Operaciones\FrmInventarioOperacionITR.aspx" />
     <Content Include="Forms\Operaciones\FrmInventarioProducto.aspx" />
+    <Content Include="Forms\Operaciones\FrmLiquidacionDescargasITR.aspx" />
     <Content Include="Forms\Operaciones\FrmLiquidacionITR.aspx" />
+    <Content Include="Forms\Operaciones\FrmPicking.aspx" />
     <Content Include="Forms\Operaciones\FrmTrazabilidad.aspx" />
+    <Content Include="Forms\Sac\FrmLiquidacionImportaciones.aspx" />
     <Content Include="Forms\TalentoHumano\FrmEmpleados.aspx" />
     <Content Include="Forms\TalentoHumano\FrmTarea.aspx" />
     <Content Include="Forms\TalentoHumano\FrmTareaDetalle.aspx" />
+    <Content Include="Forms\TalentoHumano\FrmTareaLider.aspx" />
+    <Content Include="Forms\TalentoHumano\FrmTareaLiderDetalle.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Img\AdministradorContable.jpeg" />
+    <Content Include="Img\btn_hv_contratados_100.png" />
+    <Content Include="Img\btn_talenup_100.png" />
     <Content Include="Img\Desarrollo.jpeg" />
+    <Content Include="Img\Estadistica.png" />
     <Content Include="Img\Fondo.jpg" />
+    <Content Include="Img\gestionfinanciera.jpg" />
+    <Content Include="Img\ggghhh.jpg" />
     <Content Include="Img\Infraestructura.jpeg" />
+    <Content Include="Img\Lider.png" />
     <Content Include="Img\logo.png" />
+    <Content Include="Img\OperacionesBulkmatic.jpg" />
     <Content Include="Img\Procesos.jpeg" />
+    <Content Include="Img\sac.png" />
+    <Content Include="Img\sac2.png" />
+    <Content Include="Img\Tareas.png" />
+    <Content Include="Img\Tecnologia.png" />
+    <Content Include="Img\Transporte.png" />
     <Content Include="Login.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -244,6 +284,8 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="Properties\PublishProfiles\BlkEnterprise - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -303,6 +345,83 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Financiera\CEDIS\FrmCierreCediAlm.aspx.cs">
+      <DependentUpon>FrmCierreCediAlm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Financiera\CEDIS\FrmCierreCediAlm.aspx.designer.cs">
+      <DependentUpon>FrmCierreCediAlm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financiera\CEDIS\FrmCierreCedis.aspx.cs">
+      <DependentUpon>FrmCierreCedis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Financiera\CEDIS\FrmCierreCedis.aspx.designer.cs">
+      <DependentUpon>FrmCierreCedis.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financiera\CEDIS\FrmCierreCedisDetalle.aspx.cs">
+      <DependentUpon>FrmCierreCedisDetalle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Financiera\CEDIS\FrmCierreCedisDetalle.aspx.designer.cs">
+      <DependentUpon>FrmCierreCedisDetalle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financiera\CEDIS\FrmLiquidacionAlmTercero.aspx.cs">
+      <DependentUpon>FrmLiquidacionAlmTercero.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Financiera\CEDIS\FrmLiquidacionAlmTercero.aspx.designer.cs">
+      <DependentUpon>FrmLiquidacionAlmTercero.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financiera\FrmCierreBarranca.aspx.cs">
+      <DependentUpon>FrmCierreBarranca.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Financiera\FrmCierreBarranca.aspx.designer.cs">
+      <DependentUpon>FrmCierreBarranca.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financiera\FrmCierreBarrancaAlm.aspx.cs">
+      <DependentUpon>FrmCierreBarrancaAlm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Financiera\FrmCierreBarrancaAlm.aspx.designer.cs">
+      <DependentUpon>FrmCierreBarrancaAlm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financiera\FrmCierreBarrancaDetalle.aspx.cs">
+      <DependentUpon>FrmCierreBarrancaDetalle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Financiera\FrmCierreBarrancaDetalle.aspx.designer.cs">
+      <DependentUpon>FrmCierreBarrancaDetalle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financiera\FrmCierreWeekly.aspx.cs">
+      <DependentUpon>FrmCierreWeekly.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Financiera\FrmCierreWeekly.aspx.designer.cs">
+      <DependentUpon>FrmCierreWeekly.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financiera\FrmIngresosBlk.aspx.cs">
+      <DependentUpon>FrmIngresosBlk.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Financiera\FrmIngresosBlk.aspx.designer.cs">
+      <DependentUpon>FrmIngresosBlk.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financiera\FrmLiquidacionAlmCedi.aspx.cs">
+      <DependentUpon>FrmLiquidacionAlmCedi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Financiera\FrmLiquidacionAlmCedi.aspx.designer.cs">
+      <DependentUpon>FrmLiquidacionAlmCedi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financiera\FrmLiquidacionEnsacado.aspx.cs">
+      <DependentUpon>FrmLiquidacionEnsacado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Financiera\FrmLiquidacionEnsacado.aspx.designer.cs">
+      <DependentUpon>FrmLiquidacionEnsacado.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MainMenu\FrmMainMenu.aspx.cs">
       <DependentUpon>FrmMainMenu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -310,12 +429,89 @@
     <Compile Include="Forms\MainMenu\FrmMainMenu.aspx.designer.cs">
       <DependentUpon>FrmMainMenu.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\MainMenu\FrmMenuFinanciera.aspx.cs">
+      <DependentUpon>FrmMenuFinanciera.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\MainMenu\FrmMenuFinanciera.aspx.designer.cs">
+      <DependentUpon>FrmMenuFinanciera.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainMenu\FrmMenuOperaciones.aspx.cs">
+      <DependentUpon>FrmMenuOperaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\MainMenu\FrmMenuOperaciones.aspx.designer.cs">
+      <DependentUpon>FrmMenuOperaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainMenu\FrmMenuPrincipal.aspx.cs">
+      <DependentUpon>FrmMenuPrincipal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\MainMenu\FrmMenuPrincipal.aspx.designer.cs">
+      <DependentUpon>FrmMenuPrincipal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainMenu\FrmMenuSAC.aspx.cs">
+      <DependentUpon>FrmMenuSAC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\MainMenu\FrmMenuSAC.aspx.designer.cs">
+      <DependentUpon>FrmMenuSAC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Operaciones\FrmAlmacenamientoDescarga.aspx.cs">
+      <DependentUpon>FrmAlmacenamientoDescarga.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Operaciones\FrmAlmacenamientoDescarga.aspx.designer.cs">
+      <DependentUpon>FrmAlmacenamientoDescarga.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Operaciones\FrmInformeCantidadITR.aspx.cs">
+      <DependentUpon>FrmInformeCantidadITR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Operaciones\FrmInformeCantidadITR.aspx.designer.cs">
+      <DependentUpon>FrmInformeCantidadITR.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Operaciones\FrmInformeContratos.aspx.cs">
       <DependentUpon>FrmInformeContratos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Forms\Operaciones\FrmInformeContratos.aspx.designer.cs">
       <DependentUpon>FrmInformeContratos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Operaciones\FrmInformeDespachos.aspx.cs">
+      <DependentUpon>FrmInformeDespachos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Operaciones\FrmInformeDespachos.aspx.designer.cs">
+      <DependentUpon>FrmInformeDespachos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Operaciones\FrmInformeHoras.aspx.cs">
+      <DependentUpon>FrmInformeHoras.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Operaciones\FrmInformeHoras.aspx.designer.cs">
+      <DependentUpon>FrmInformeHoras.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Operaciones\FrmInformeLiquidacionMes.aspx.cs">
+      <DependentUpon>FrmInformeLiquidacionMes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Operaciones\FrmInformeLiquidacionMes.aspx.designer.cs">
+      <DependentUpon>FrmInformeLiquidacionMes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Operaciones\FrmInformeReprogramacion.aspx.cs">
+      <DependentUpon>FrmInformeReprogramacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Operaciones\FrmInformeReprogramacion.aspx.designer.cs">
+      <DependentUpon>FrmInformeReprogramacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Operaciones\FrmInformeTolvas.aspx.cs">
+      <DependentUpon>FrmInformeTolvas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Operaciones\FrmInformeTolvas.aspx.designer.cs">
+      <DependentUpon>FrmInformeTolvas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Operaciones\FrmInventario.aspx.cs">
       <DependentUpon>FrmInventario.aspx</DependentUpon>
@@ -338,12 +534,26 @@
     <Compile Include="Forms\Operaciones\FrmInventarioLote.aspx.designer.cs">
       <DependentUpon>FrmInventarioLote.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Operaciones\FrmInventarioOperacionITR.aspx.cs">
+      <DependentUpon>FrmInventarioOperacionITR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Operaciones\FrmInventarioOperacionITR.aspx.designer.cs">
+      <DependentUpon>FrmInventarioOperacionITR.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Operaciones\FrmInventarioProducto.aspx.cs">
       <DependentUpon>FrmInventarioProducto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Forms\Operaciones\FrmInventarioProducto.aspx.designer.cs">
       <DependentUpon>FrmInventarioProducto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Operaciones\FrmLiquidacionDescargasITR.aspx.cs">
+      <DependentUpon>FrmLiquidacionDescargasITR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Operaciones\FrmLiquidacionDescargasITR.aspx.designer.cs">
+      <DependentUpon>FrmLiquidacionDescargasITR.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Operaciones\FrmLiquidacionITR.aspx.cs">
       <DependentUpon>FrmLiquidacionITR.aspx</DependentUpon>
@@ -352,12 +562,26 @@
     <Compile Include="Forms\Operaciones\FrmLiquidacionITR.aspx.designer.cs">
       <DependentUpon>FrmLiquidacionITR.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Operaciones\FrmPicking.aspx.cs">
+      <DependentUpon>FrmPicking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Operaciones\FrmPicking.aspx.designer.cs">
+      <DependentUpon>FrmPicking.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Operaciones\FrmTrazabilidad.aspx.cs">
       <DependentUpon>FrmTrazabilidad.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Forms\Operaciones\FrmTrazabilidad.aspx.designer.cs">
       <DependentUpon>FrmTrazabilidad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Sac\FrmLiquidacionImportaciones.aspx.cs">
+      <DependentUpon>FrmLiquidacionImportaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Sac\FrmLiquidacionImportaciones.aspx.designer.cs">
+      <DependentUpon>FrmLiquidacionImportaciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\TalentoHumano\FrmEmpleados.aspx.cs">
       <DependentUpon>FrmEmpleados.aspx</DependentUpon>
@@ -380,6 +604,20 @@
     <Compile Include="Forms\TalentoHumano\FrmTareaDetalle.aspx.designer.cs">
       <DependentUpon>FrmTareaDetalle.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\TalentoHumano\FrmTareaLider.aspx.cs">
+      <DependentUpon>FrmTareaLider.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\TalentoHumano\FrmTareaLider.aspx.designer.cs">
+      <DependentUpon>FrmTareaLider.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TalentoHumano\FrmTareaLiderDetalle.aspx.cs">
+      <DependentUpon>FrmTareaLiderDetalle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\TalentoHumano\FrmTareaLiderDetalle.aspx.designer.cs">
+      <DependentUpon>FrmTareaLiderDetalle.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -391,6 +629,9 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servicios\RequesItemLedgerEntry.cs" />
+    <Compile Include="Servicios\ResponseItemLedgerEntry.cs" />
+    <Compile Include="Servicios\ServicesNavisionIntegracion.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

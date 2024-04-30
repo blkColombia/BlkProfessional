@@ -13,5 +13,23 @@ namespace BlkProfessional.Forms.Menu
         {
 
         }
+
+        protected void btnTareas_Click(object sender, ImageClickEventArgs e)
+        {
+            string usuario = Request.QueryString["usuario"];
+            Response.Redirect($"~/Forms/TalentoHumano/FrmTarea.aspx?usuario={usuario}");
+        }
+
+        protected void btnLider_Click(object sender, ImageClickEventArgs e)
+        {
+            string usuario = Request.QueryString["usuario"];
+            Response.Redirect($"~/Forms/TalentoHumano/FrmTareaLider.aspx?usuario={usuario}");
+
+        }
+
+        protected void btnEstadistica_Click(object sender, ImageClickEventArgs e)
+        {
+
+        }
     }
 }

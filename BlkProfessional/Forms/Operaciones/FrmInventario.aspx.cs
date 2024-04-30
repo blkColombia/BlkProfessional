@@ -1,5 +1,5 @@
-﻿using BRL;
-using DCL;
+﻿using BlkProfessional.Servicios;
+using Newtonsoft.Json;
 using System;
 using System.Data;
 using System.IO;
@@ -12,7 +12,16 @@ namespace BlkProfessional.Forms.Operaciones
 
         protected void Page_Init(object sender, EventArgs e)
         {
-            LlenarDropdowns(ItemLedgerEntry_BRL.SelectTable(new ItemLedgerEntry(), 3), ddl_Terminal, new string[] { "CodigoTerminal", "CodigoTerminal" });
+            RequesItemLedgerEntry objeto = new RequesItemLedgerEntry
+            {
+                CodigoCliente = txtCliente.Text,
+                Action = 3
+            };
+            string jsonString = JsonConvert.SerializeObject(objeto);
+            var mensaje = Servicios.ServicesNavisionIntegracion.InvokeService("DatosCliente", jsonString);
+            ResponseItemLedgerEntry listaObjetos = JsonConvert.DeserializeObject<ResponseItemLedgerEntry>(mensaje);
+            DataTable dtb = listaObjetos.data;
+            LlenarDropdowns(dtb, ddl_Terminal, new string[] { "CodigoTerminal", "CodigoTerminal" });
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -20,10 +29,20 @@ namespace BlkProfessional.Forms.Operaciones
 
         }
         protected void txtCliente_TextChanged(object sender, EventArgs e)
-        {
-            ItemLedgerEntry obj = new ItemLedgerEntry();
-            obj.CustomerNo = txtCliente.Text;
-            DataTable dtb = ItemLedgerEntry_BRL.SelectTable(obj, 1);
+          {
+            RequesItemLedgerEntry objeto = new RequesItemLedgerEntry
+            {
+                CodigoCliente = txtCliente.Text,
+                Action = 1
+                
+            };
+
+            string jsonString = JsonConvert.SerializeObject(objeto);
+            var mensaje = Servicios.ServicesNavisionIntegracion.InvokeService("DatosCliente", jsonString);
+
+            ResponseItemLedgerEntry listaObjetos = JsonConvert.DeserializeObject<ResponseItemLedgerEntry>(mensaje);
+
+            DataTable dtb = listaObjetos.data;
             if (dtb.Rows.Count > 0)
             {
                 txtDescripcionCliente.Text = dtb.Rows[0]["Name"].ToString();
@@ -64,18 +83,46 @@ namespace BlkProfessional.Forms.Operaciones
 
         protected void ddl_Terminal_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LlenarDropdowns(ItemLedgerEntry_BRL.SelectTable(new ItemLedgerEntry() { Terminal=ddl_Terminal.SelectedValue }, 4), ddlLocation, new string[] { "Location", "Location" });
+            RequesItemLedgerEntry objeto = new RequesItemLedgerEntry
+            {
+                Terminal = ddl_Terminal.SelectedValue,
+                Action = 4
+            };
+            string jsonString = JsonConvert.SerializeObject(objeto);
+            var mensaje = Servicios.ServicesNavisionIntegracion.InvokeService("DatosCliente", jsonString);
+            ResponseItemLedgerEntry listaObjetos = JsonConvert.DeserializeObject<ResponseItemLedgerEntry>(mensaje);
+            DataTable dtb = listaObjetos.data;
+
+            LlenarDropdowns(dtb, ddlLocation, new string[] { "Location", "Location" });
+        }
+
+
+        private string convertirFecha(string year,string mes) {
+
+            string fecha = "";
+            int dia = DateTime.DaysInMonth(Convert.ToInt32(year), Convert.ToInt32(mes));
+            fecha = dia.ToString()+ "/"+mes+"/"+year;
+            return fecha;
         }
 
         protected void btnDescargar_Click(object sender, EventArgs e)
         {
             try
-            {                
-                ItemLedgerEntry obj = new ItemLedgerEntry();               
-                obj.CustomerNo = txtCliente.Text;
-                obj.Terminal = ddl_Terminal.SelectedItem.Value;
-                obj.LocationCode = ddlLocation.SelectedItem.Value;
-                DataTable dtb = ItemLedgerEntry_BRL.SelectTable(obj, 2);
+            {
+
+                RequesItemLedgerEntry objeto = new RequesItemLedgerEntry
+                {
+                    Terminal = ddl_Terminal.SelectedValue,
+                    LocationCode = ddlLocation.SelectedValue,
+                    CodigoCliente = txtCliente.Text,
+                    Fecha = convertirFecha(ddlYear.SelectedValue,ddlMonth.SelectedValue),                    
+                    Action = 7
+                };
+                string jsonString = JsonConvert.SerializeObject(objeto);
+                var mensaje = Servicios.ServicesNavisionIntegracion.InvokeService("DatosCliente", jsonString);
+                ResponseItemLedgerEntry listaObjetos = JsonConvert.DeserializeObject<ResponseItemLedgerEntry>(mensaje);
+                DataTable dtb = listaObjetos.data;
+
                 if (dtb.Rows.Count > 0)
                 {
 
@@ -116,6 +163,7 @@ namespace BlkProfessional.Forms.Operaciones
             }
         }
 
+      
 
         private void ExportToExcel(DataTable table, string filePath)
         {
@@ -151,5 +199,10 @@ namespace BlkProfessional.Forms.Operaciones
             sw.Close();
         }
 
+        protected void lnkMenu_Click(object sender, EventArgs e)
+        {
+            string usuario = Request.QueryString["usuario"];
+            Response.Redirect($"~/Forms/MainMenu/FrmMenuOperaciones.aspx?usuario={usuario}");
+        }
     }
 }

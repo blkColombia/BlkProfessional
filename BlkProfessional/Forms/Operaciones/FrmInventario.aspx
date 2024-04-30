@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FrmInventario.aspx.cs" Inherits="BlkProfessional.Forms.Operaciones.FrmInventario" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="container">
+    <div class="container">     
+        <asp:LinkButton runat="server" ID="lnkMenu" OnClick="lnkMenu_Click" ><h5 style="padding:10px;text-align: left;color:orange; font-weight:bold; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Menu Principal >>  Modulo Operaciones</h5></asp:LinkButton>
         <br />
-        <h1 style="text-align: center;">Informe de Liquidacion de Inventarios</h1>
+        <h1 style="text-align: center;">Informe de Inventarios</h1>
         <br />
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -18,7 +19,8 @@
                                      <asp:DropDownList CssClass="form-control" ID="ddlYear" runat="server">
                                         <asp:ListItem Value="0">-Seleccione Movimiento-</asp:ListItem>
                                         <asp:ListItem Value="2022">2022</asp:ListItem>
-                                        <asp:ListItem Value="2023">2023</asp:ListItem>                                        
+                                        <asp:ListItem Value="2023">2023</asp:ListItem>   
+                                        <asp:ListItem Value="2024">2024</asp:ListItem>   
                                     </asp:DropDownList>
                                 </div>
                             </div>
@@ -29,15 +31,15 @@
                                 <div class="col-sm-8">
                                       <asp:DropDownList CssClass="form-control" ID="ddlMonth" runat="server">
                                         <asp:ListItem Value="0">-Seleccione Mes-</asp:ListItem>
-                                        <asp:ListItem Value="1">Enero</asp:ListItem>
-                                          <asp:ListItem Value="2">Febrero</asp:ListItem>
-                                          <asp:ListItem Value="3">Marzo</asp:ListItem>
-                                          <asp:ListItem Value="4">Abril</asp:ListItem>
-                                          <asp:ListItem Value="5">Mayo</asp:ListItem>
-                                          <asp:ListItem Value="6">Junio</asp:ListItem>
-                                          <asp:ListItem Value="7">Julio</asp:ListItem>
-                                          <asp:ListItem Value="8">Agosto</asp:ListItem>
-                                          <asp:ListItem Value="9">Septiembre</asp:ListItem>
+                                        <asp:ListItem Value="01">Enero</asp:ListItem>
+                                          <asp:ListItem Value="02">Febrero</asp:ListItem>
+                                          <asp:ListItem Value="03">Marzo</asp:ListItem>
+                                          <asp:ListItem Value="04">Abril</asp:ListItem>
+                                          <asp:ListItem Value="05">Mayo</asp:ListItem>
+                                          <asp:ListItem Value="06">Junio</asp:ListItem>
+                                          <asp:ListItem Value="07">Julio</asp:ListItem>
+                                          <asp:ListItem Value="08">Agosto</asp:ListItem>
+                                          <asp:ListItem Value="09">Septiembre</asp:ListItem>
                                           <asp:ListItem Value="10">Octubre</asp:ListItem>
                                           <asp:ListItem Value="11">Noviembre</asp:ListItem>
                                           <asp:ListItem Value="12">Diciembre</asp:ListItem>                                                                                 

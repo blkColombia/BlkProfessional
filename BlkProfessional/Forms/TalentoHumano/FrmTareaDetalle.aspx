@@ -40,11 +40,11 @@
 
                                         <div class="form-group col-md-6"">
                                              <label for="ddlEstadoTareaCB">Estado de la Tarea</label>
-                                            <asp:DropDownList ID="ddlCiudad" runat="server" CssClass="form-control">
-                                                <asp:ListItem Text="--Seleccione Estado--" Value="" />
+                                            <asp:DropDownList ID="ddlEstadoTareaR" runat="server" CssClass="form-control">                                       
                                                 <asp:ListItem Text="Pendiente" Value="1" />
                                                 <asp:ListItem Text="Finalizado" Value="2" />
-                                             
+                                                <asp:ListItem Text="Aprobada" Value="3" />
+                                                <asp:ListItem Text="Rechazada" Value="4" />
                                             </asp:DropDownList>
                                         </div>
                                 </div>
@@ -74,8 +74,8 @@
 
                                   <div class="form-row">
                                 <div class="form-group col-md-11 text-center">
-                                    <button type="submit" class="btn btn-primary">Atras</button>
-                                    <asp:Button ID="btnGuardar" runat="server" OnClick="btnGuardar_Click" Text="Guardar" CssClass="btn btn-secondary" />                                    
+                                   <asp:Button ID="btnAtras" runat="server" OnClick="btnAtras_Click" Text="Atras" CssClass="btn btn-secondary" />                                    
+                                    <asp:Button ID="btnGuardar" runat="server" OnClick="btnGuardar_Click" Text="Guardar" CssClass="btn btn-Primary" />                                    
                                 </div>
 
                                       </div>
@@ -108,11 +108,11 @@
 
                                         <div class="form-group col-md-6"">
                                             <label for="ddlEstadoTareaCBC">Estado de la Tarea</label>
-                                            <asp:DropDownList ID="ddlEstadoTareaCBC" runat="server" CssClass="form-control">
-                                                <asp:ListItem Text="--Seleccione Estado--" Value="" />
+                                            <asp:DropDownList ID="ddlEstadoTareaCBC" runat="server" CssClass="form-control">                                             
                                                 <asp:ListItem Text="Pendiente" Value="1" />
                                                 <asp:ListItem Text="Finalizado" Value="2" />
-                                              
+                                                <asp:ListItem Text="Aprobada" Value="3" />
+                                                <asp:ListItem Text="Rechazada" Value="4" />
                                             </asp:DropDownList>
                                         </div>
                                 </div>
@@ -141,18 +141,11 @@
 
 
                                   <div class="form-row">
-                                <div class="form-group col-md-11 text-center">
-                                    <button type="submit" class="btn btn-primary">Enviar</button>
-                                    <button type="button" class="btn btn-secondary">Atras</button>
+                                <div class="form-group col-md-11 text-center">                                    
+                                    <asp:Button ID="btnAtrasD" runat="server" OnClick="btnAtras_Click" Text="Atras" CssClass="btn btn-secondary" />   
+                                    <asp:Button ID="btnGuardarD" runat="server" OnClick="btnGuardarD_Click" Text="Guardar" CssClass="btn btn-Primary" />   
                                 </div>
-                                      </div>
-
-
-                                  <div class="form-row">
-                                <div class="form-group col-md-11">                    
-                                    <button type="button" class="btn btn-secondary">Atras</button>
-                                </div>
-                                      </div>
+                                      </div>                            
 
                             </div>
                             </div>

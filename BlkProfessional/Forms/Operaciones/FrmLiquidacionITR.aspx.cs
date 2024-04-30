@@ -1,8 +1,10 @@
-﻿using BRL;
+﻿using BlkProfessional.Servicios;
+using BRL;
 using ClosedXML.Excel;
 using DCL;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using Newtonsoft.Json;
 using OfficeOpenXml;
 using System;
 using System.Data;
@@ -15,7 +17,17 @@ namespace BlkProfessional.Forms.Operaciones
     {
         protected void Page_Init(object sender, EventArgs e)
         {
-            LlenarDropdowns(ItemLedgerEntry_BRL.SelectTable(new ItemLedgerEntry(), 3), ddl_Terminal, new string[] { "CodigoTerminal", "CodigoTerminal" });
+            RequesItemLedgerEntry objeto = new RequesItemLedgerEntry
+            {
+                CodigoCliente = txtCliente.Text,
+                Action = 3
+            };
+            string jsonString = JsonConvert.SerializeObject(objeto);
+            var mensaje = Servicios.ServicesNavisionIntegracion.InvokeService("DatosCliente", jsonString);
+            ResponseItemLedgerEntry listaObjetos = JsonConvert.DeserializeObject<ResponseItemLedgerEntry>(mensaje);
+            DataTable dtb = listaObjetos.data;
+            LlenarDropdowns(dtb, ddl_Terminal, new string[] { "CodigoTerminal", "CodigoTerminal" });
+
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -24,9 +36,19 @@ namespace BlkProfessional.Forms.Operaciones
         }
         protected void txtCliente_TextChanged(object sender, EventArgs e)
         {
-            ItemLedgerEntry obj = new ItemLedgerEntry();
-            obj.CustomerNo = txtCliente.Text;
-            DataTable dtb = ItemLedgerEntry_BRL.SelectTable(obj, 1);
+            RequesItemLedgerEntry objeto = new RequesItemLedgerEntry
+            {
+                CodigoCliente = txtCliente.Text,
+                Action = 1
+
+            };
+
+            string jsonString = JsonConvert.SerializeObject(objeto);
+            var mensaje = Servicios.ServicesNavisionIntegracion.InvokeService("DatosCliente", jsonString);
+
+            ResponseItemLedgerEntry listaObjetos = JsonConvert.DeserializeObject<ResponseItemLedgerEntry>(mensaje);
+
+            DataTable dtb = listaObjetos.data;
             if (dtb.Rows.Count > 0)
             {
                 txtDescripcionCliente.Text = dtb.Rows[0]["Name"].ToString();
@@ -67,7 +89,26 @@ namespace BlkProfessional.Forms.Operaciones
 
         protected void ddl_Terminal_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LlenarDropdowns(ItemLedgerEntry_BRL.SelectTable(new ItemLedgerEntry() { Terminal = ddl_Terminal.SelectedValue }, 4), ddlLocation, new string[] { "Location", "Location" });
+            RequesItemLedgerEntry objeto = new RequesItemLedgerEntry
+            {
+                Terminal = ddl_Terminal.SelectedValue,
+                Action = 4
+            };
+            string jsonString = JsonConvert.SerializeObject(objeto);
+            var mensaje = Servicios.ServicesNavisionIntegracion.InvokeService("DatosCliente", jsonString);
+            ResponseItemLedgerEntry listaObjetos = JsonConvert.DeserializeObject<ResponseItemLedgerEntry>(mensaje);
+            DataTable dtb = listaObjetos.data;
+
+            LlenarDropdowns(dtb, ddlLocation, new string[] { "Location", "Location" });
+        }
+
+        private string convertirFecha(string year, string mes)
+        {
+
+            string fecha = "";
+            int dia = DateTime.DaysInMonth(Convert.ToInt32(year), Convert.ToInt32(mes));
+            fecha = dia.ToString() + "/" + mes + "/" + year;
+            return fecha;
         }
 
         protected void btnDescargar_Click(object sender, EventArgs e)
@@ -97,52 +138,76 @@ namespace BlkProfessional.Forms.Operaciones
                 // ExportToExcel(dtb, rutarchivo);
             
                 using (var workbook = new XLWorkbook())
-                {                
-                    ItemLedgerEntry objRegisterCar = new ItemLedgerEntry();
-                    objRegisterCar.CustomerNo = txtCliente.Text;
-                    objRegisterCar.Terminal = ddl_Terminal.SelectedItem.Value;
-                    objRegisterCar.LocationCode = ddlLocation.SelectedItem.Value;
-                    DataTable dtbRegsiter = ItemLedgerEntry_BRL.SelectTable(objRegisterCar, 6);
-                    if (dtbRegsiter.Rows.Count > 0)
+                {
+
+                    RequesItemLedgerEntry objeto = new RequesItemLedgerEntry
                     {
-
-                        System.Web.HttpResponse response = System.Web.HttpContext.Current.Response;
-                        response.ClearContent();
-                        response.Clear();
-                        //response.ContentType = "application/vnd.xls";
-                        response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-                        response.AddHeader("content-disposition", "attachment; filename=" + "InformeLiquidacion" + ".xls" + ";");
-
-                        // Crea una nueva hoja en el libro
-                        for (int i = 0; i < dtbRegsiter.Rows.Count; i++)
+                        Terminal = ddl_Terminal.SelectedValue,
+                        LocationCode = ddlLocation.SelectedValue,
+                        CodigoCliente = txtCliente.Text,
+                        Fecha = convertirFecha(ddlYear.SelectedValue, ddlMonth.SelectedValue),
+                        Action = 6
+                    };
+                    string jsonString = JsonConvert.SerializeObject(objeto);
+                    var mensaje = Servicios.ServicesNavisionIntegracion.InvokeService("DatosCliente", jsonString);
+                    ResponseItemLedgerEntry listaObjetos = JsonConvert.DeserializeObject<ResponseItemLedgerEntry>(mensaje);
+                   
+                    if (listaObjetos.data != null)
+                    {
+                        DataTable dtbRegsiter = listaObjetos.data;
+                        if (dtbRegsiter.Rows.Count > 0)
                         {
-                            var worksheet = workbook.Worksheets.Add(dtbRegsiter.Rows[i][0].ToString());
 
-                            ItemLedgerEntry obj = new ItemLedgerEntry();
-                            obj.CustomerNo = txtCliente.Text;
-                            obj.Terminal = ddl_Terminal.SelectedItem.Value;
-                            obj.LocationCode = ddlLocation.SelectedItem.Value;
-                            obj.SourceNo = dtbRegsiter.Rows[i][0].ToString();
-                            DataTable dtb = ItemLedgerEntry_BRL.SelectTable(obj, 5);
-                            if (dtb.Rows.Count > 0)
+                            System.Web.HttpResponse response = System.Web.HttpContext.Current.Response;
+                            response.ClearContent();
+                            response.Clear();
+                            //response.ContentType = "application/vnd.xls";
+                            response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                            response.AddHeader("content-disposition", "attachment; filename=" + "InformeLiquidacion" + ".xls" + ";");
+
+                            // Crea una nueva hoja en el libro
+                            for (int i = 0; i < dtbRegsiter.Rows.Count; i++)
                             {
-                                // Rellena la hoja con los datos del DataTable
-                                worksheet.Cell(1, 1).InsertTable(dtb);
-                                // Guarda el archivo Excel
+                                var worksheet = workbook.Worksheets.Add(dtbRegsiter.Rows[i][0].ToString());
+
+                                RequesItemLedgerEntry objetos = new RequesItemLedgerEntry
+                                {
+                                    Terminal = ddl_Terminal.SelectedValue,
+                                    LocationCode = ddlLocation.SelectedValue,
+                                    CodigoCliente = txtCliente.Text,
+                                    SourceNo = dtbRegsiter.Rows[i][0].ToString(),
+                                    Fecha = convertirFecha(ddlYear.SelectedValue, ddlMonth.SelectedValue),
+                                    Action = 5
+                                };
+                                string jsonStrings = JsonConvert.SerializeObject(objetos);
+                                var mensajes = Servicios.ServicesNavisionIntegracion.InvokeService("DatosCliente", jsonStrings);
+                                ResponseItemLedgerEntry listaObjetosL = JsonConvert.DeserializeObject<ResponseItemLedgerEntry>(mensajes);
+                                DataTable dtb = listaObjetosL.data;
+                                if (listaObjetosL.data.Rows.Count > 0)
+                                {
+                                    if (dtb.Rows.Count > 0)
+                                    {
+                                        // Rellena la hoja con los datos del DataTable
+                                        worksheet.Cell(1, 1).InsertTable(dtb);
+                                    }   // Guarda el archivo Excel
+                                }
                             }
-                        }
 
-                        using (MemoryStream memoryStream = new MemoryStream())
+                            using (MemoryStream memoryStream = new MemoryStream())
+                            {
+                                workbook.SaveAs(memoryStream);
+                                memoryStream.WriteTo(response.OutputStream);
+                            }
+
+                            response.End();
+                        }
+                        else
                         {
-                            workbook.SaveAs(memoryStream);
-                            memoryStream.WriteTo(response.OutputStream);
+                            MostrarMensaje("el cliente no tiene importaciones");
                         }
-
-                        response.End();
                     }
-                    else
-                    {
-                        MostrarMensaje("el cliente no tiene importaciones");
+                    else {
+                        MostrarMensaje("el cliente seleccionado no tiene importaciones");
                     }
                 }
 

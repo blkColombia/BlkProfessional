@@ -42,13 +42,13 @@ namespace BlkProfessional.Forms.TalentoHumano
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtFechaCierreRE;
 
         /// <summary>
-        /// Control ddlCiudad.
+        /// Control ddlEstadoTareaR.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCiudad;
+        protected global::System.Web.UI.WebControls.DropDownList ddlEstadoTareaR;
 
         /// <summary>
         /// Control txtResultadoExcelente.
@@ -76,6 +76,15 @@ namespace BlkProfessional.Forms.TalentoHumano
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTextArea txtSeguimLRE;
+
+        /// <summary>
+        /// Control btnAtras.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAtras;
 
         /// <summary>
         /// Control btnGuardar.
@@ -148,5 +157,23 @@ namespace BlkProfessional.Forms.TalentoHumano
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTextArea txtSeguimLSC;
+
+        /// <summary>
+        /// Control btnAtrasD.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAtrasD;
+
+        /// <summary>
+        /// Control btnGuardarD.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGuardarD;
     }
 }

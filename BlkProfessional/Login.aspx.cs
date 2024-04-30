@@ -18,14 +18,35 @@ namespace BlkProfessional
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrWhiteSpace(txtLogueo.Value)) {
+                MostrarMensaje("el campo usuario no puede estar vacio");
+                return;
+            }
+            if (String.IsNullOrWhiteSpace(txtPassword.Value))
+            {
+                MostrarMensaje("El campo contrasena no puede estar vacio");
+                return;
+            }
+
             DCL.Employees obj = new DCL.Employees();
             obj.IdentificationNumber = txtLogueo.Value;
             obj.Names = txtPassword.Value;
             DataTable dtb = Employess_BRL.SelectTable(obj,3);
-            if (dtb.Rows.Count > 0) { 
-            
-            
+            if (dtb.Rows.Count > 0)
+            {
+                string usuario = txtLogueo.Value;
+                Response.Redirect($"~/Forms/MainMenu/FrmMenuPrincipal.aspx?usuario={usuario}");
             }
+            else {
+                MostrarMensaje("Usuario y contrasena incorrecta");
+            }
+        }
+
+
+        private void MostrarMensaje(string mensaje)
+        {
+            string script = "<script language='javascript'>alert('" + mensaje + "');</script>";
+            this.ClientScript.RegisterStartupScript(this.GetType(), Guid.NewGuid().ToString(), script);
         }
     }
 }

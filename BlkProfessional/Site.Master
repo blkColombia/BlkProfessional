@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
+    <title><%: Page.Title %> Bulkmatic</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -23,21 +23,22 @@
     }
 
     .navbar-right {
-    float: right !important;
-    margin-right: 0px;
-}
+        float: right !important;
+        margin-right: 0px;
+    }
+
     .icon-bar {
-        width: 90px;
+        width: 50px;
         background-color: #333333;
     }
 
         .icon-bar a {
             display: block;
             text-align: center;
-            padding: 16px;
+            padding: 10px;
             transition: all 0.3s ease;
             color: white;
-            font-size: 36px;
+            font-size: 26px;
         }
 
             .icon-bar a:hover {
@@ -47,8 +48,35 @@
     .active {
         background-color: #f17721;
     }
-    #MenuLateral{
+
+    #MenuLateral {
         height: 250vh;
+        display: none;
+    }
+
+
+
+    .floating-button {
+        display: none;
+        position: fixed;
+        bottom: 20px; /* Ajusta la posición vertical del botón */
+        right: 20px; /* Ajusta la posición horizontal del botón */
+        background-color: #3498db; /* Color de fondo del botón */
+        color: #fff;
+        border: none;
+        border-radius: 50%; /* Hace que el botón tenga forma circular */
+        padding: 15px;
+        font-size: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease; /* Transición suave de color al pasar el mouse */
+    }
+
+        .floating-button:hover {
+            background-color: #2980b9; /* Color de fondo del botón al pasar el mouse */
+        }
+
+    .navbar-inverse {
+        border-color: #ddd;
     }
 </style>
 
@@ -74,41 +102,36 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
-           
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                              <img width="300" height="55" src="https://bulkmatic.com.co/wp-content/uploads/2023/01/logo-color.webp" class="attachment-full size-full wp-image-23 entered lazyloaded" alt="" data-lazy-srcset="https://bulkmatic.com.co/wp-content/uploads/2023/01/logo-color.webp 324w, https://bulkmatic.com.co/wp-content/uploads/2023/01/logo-color-300x60.webp 300w" data-lazy-sizes="(max-width: 324px) 100vw, 324px" data-lazy-src="https://bulkmatic.com.co/wp-content/uploads/2023/01/logo-color.webp" data-ll-status="loaded" sizes="(max-width: 324px) 100vw, 324px" srcset="https://bulkmatic.com.co/wp-content/uploads/2023/01/logo-color.webp 324w, https://bulkmatic.com.co/wp-content/uploads/2023/01/logo-color-300x60.webp 300w">
-                    <a class="navbar-brand" runat="server" style="font-family: Arial; font-weight: bold; color: white" href="~/">
-              
-                   
+        <div style="background-color: #ddd;" class="navbar navbar-inverse navbar-fixed-top">
 
-                    </a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-               
-                        <%--   <li><a runat="server" href="~/About"></a></li>
-                        <li><a runat="server" href="~/Contact"></a></li>--%>
-                    </ul>
+            <div style="background-color: #ddd;" class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img width="300" height="55" src="https://bulkmatic.com.co/wp-content/uploads/2023/01/logo-color.webp" class="attachment-full size-full wp-image-23 entered lazyloaded" alt="" data-lazy-srcset="https://bulkmatic.com.co/wp-content/uploads/2023/01/logo-color.webp 324w, https://bulkmatic.com.co/wp-content/uploads/2023/01/logo-color-300x60.webp 300w" data-lazy-sizes="(max-width: 324px) 100vw, 324px" data-lazy-src="https://bulkmatic.com.co/wp-content/uploads/2023/01/logo-color.webp" data-ll-status="loaded" sizes="(max-width: 324px) 100vw, 324px" srcset="https://bulkmatic.com.co/wp-content/uploads/2023/01/logo-color.webp 324w, https://bulkmatic.com.co/wp-content/uploads/2023/01/logo-color-300x60.webp 300w">
+                <a class="navbar-brand" runat="server" style="font-family: Arial; font-weight: bold; color: white" href="~/"></a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
 
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mi Perfil</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Salir </a></li>
-                    </ul>
-                </div>
-            
+                    <%--   <li><a runat="server" href="~/About"></a></li>--%>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <%--<li><a href="#"><span class="glyphicon glyphicon-user"></span> Mi Perfil</a></li>--%>
+                    <li><a href="<%= ResolveUrl("~/Login.aspx") %>"><span class="glyphicon glyphicon-log-in"></span>Salir </a></li>
+                </ul>
+            </div>
+
         </div>
         <div style="display: inline-flex;">
             <div id="MenuLateral" class="icon-bar">
-                  
-                <a class="active" title="Mis Compromisos"  href="#"><i class="fa fa-home"></i> </a>
-                <a href="Forms/TalentoHumano/FrmTarea.aspx"  title="Seguimiento"><i class="fa fa-university"></i></a>
-               <%-- <a href="FrmTrazabilidad.aspx" style="font-size: 12px;">Informe trazabilidad</a>
+
+                <a class="active" title="Mis Compromisos" href="#"><i class="fa fa-home"></i></a>
+                <a href="Forms/TalentoHumano/FrmTarea.aspx" title="Seguimiento"><i class="fa fa-university"></i></a>
+                <%-- <a href="FrmTrazabilidad.aspx" style="font-size: 12px;">Informe trazabilidad</a>
                 <a href="FrmInformeContratos.aspx" style="font-size: 12px;">Informe de Contratos</a>
                 <a href="FrmInventario.aspx" style="font-size: 12px;">Informe Liquidacion Inventario</a>
                 <a href="FrmInventarioLote" style="font-size: 12px;">Informe Liquidacion Inventario por Producto</a>
@@ -116,17 +139,11 @@
                 <a href="FrmInventarioGranel" style="font-size: 12px;">Informe Granel</a>
                 <a href="#" style="font-size: 12px;">Informe Auditoria Inventario</a>
                 <a href="#" style="font-size: 12px;">Cerrar Sesion</a>--%>
-
-
             </div>
 
-     
+            <button class="floating-button">+</button>
 
-            <div class="container body-content">
-
-
-
-
+            <div style="padding-left: 10%;" class="container body-content">
                 <asp:ContentPlaceHolder ID="MainContent" runat="server">
                 </asp:ContentPlaceHolder>
 

@@ -44,8 +44,11 @@
     <Compile Include="Class1.cs" />
     <Compile Include="EmployeesFactory.cs" />
     <Compile Include="FactoryBase.cs" />
+    <Compile Include="GFCierreFinancieroDetalleFactory.cs" />
+    <Compile Include="GFCierreFinancieroFactory.cs" />
     <Compile Include="ItemLedgerEntryFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WeeklyFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DCL\DCL.csproj">
