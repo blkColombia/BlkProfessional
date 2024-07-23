@@ -1,4 +1,6 @@
 ﻿using BlkProfessional.Servicios;
+using BRL;
+using DCL;
 using Newtonsoft.Json;
 using System;
 using System.Data;
@@ -23,7 +25,23 @@ namespace BlkProfessional.Forms.Financiera
             DataTable dtb = listaObjetos.data;
             LlenarDropdowns(dtb, ddl_Terminal, new string[] { "CodigoTerminal", "CodigoTerminal" });
             ddlYear.SelectedValue = "2024";
-            ddlMonth.SelectedValue = "04";
+
+            string idCierre = Request.QueryString["IdCierre"];
+            GFCierreFinanciero obj = new GFCierreFinanciero();
+            obj.IdCierre = Convert.ToInt32(idCierre);
+            DataTable dtbMes = GFCierreFinanciero_BRL.SelectTable(obj, 1);
+            if (dtbMes.Rows.Count > 0)
+            {
+                ddlMonth.SelectedValue = dtbMes.Rows[0]["Mes"].ToString();
+                if (dtbMes.Rows[0]["Estado"].ToString() != "Abierto")
+                {
+                    btnAprobar.Enabled = false;
+                }
+                else {
+                    btnAprobar.Enabled = true;
+                }
+            }
+
             txtCliente.Text = "CTE0001";
             txtCliente_TextChanged(null,null);
             ddl_Terminal.SelectedValue = "BCA";
@@ -227,7 +245,7 @@ namespace BlkProfessional.Forms.Financiera
         protected void lnkMenu_Click(object sender, EventArgs e)
         {
             string usuario = Request.QueryString["usuario"];
-            Response.Redirect($"~/Forms/MainMenu/FrmMenuOperaciones.aspx?usuario={usuario}");
+            Response.Redirect($"~/Forms/MainMenu/FrmMenuFinanciera.aspx?usuario={usuario}");
         }
 
         protected void gvCierre_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -372,8 +390,9 @@ namespace BlkProfessional.Forms.Financiera
 
         protected void btnAtras_Click(object sender, EventArgs e)
         {
+            string idCierre = Request.QueryString["IdCierre"];
             string usuario = Request.QueryString["usuario"];
-            Response.Redirect($"~/Forms/Financiera/FrmCierreBarrancaDetalle.aspx?usuario={usuario}");
+            Response.Redirect($"~/Forms/Financiera/FrmCierreBarrancaDetalle.aspx?usuario={usuario}&IdCierre={idCierre}");
         }
 
         protected void btnAprobar_Click(object sender, EventArgs e)
@@ -401,9 +420,9 @@ namespace BlkProfessional.Forms.Financiera
             BRL.GFCierreFinancieroDetalle_BRL.InsertarOrUpdate(objImpMaterial, 1);
 
 
-
+            
             string usuario = Request.QueryString["usuario"];
-            Response.Redirect($"~/Forms/Financiera/FrmCierreBarrancaDetalle.aspx?usuario={usuario}");
+            Response.Redirect($"~/Forms/Financiera/FrmCierreBarrancaDetalle.aspx?usuario={usuario}&IdCierre={idCierre}");
 
         }
     }

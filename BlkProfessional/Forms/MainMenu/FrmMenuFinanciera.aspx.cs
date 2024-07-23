@@ -79,5 +79,11 @@ namespace BlkProfessional.Forms.MainMenu
             string usuario = Request.QueryString["usuario"];
             Response.Redirect($"~/Forms/Financiera/CEDIS/FrmCierreCedis.aspx?usuario={usuario}");
         }
+
+        protected void lnkCierreCartagena_Click(object sender, EventArgs e)
+        {
+            string usuario = Request.QueryString["usuario"];
+            Response.Redirect($"~/Forms/Financiera/CTG/FrmCierreCTG.aspx?usuario={usuario}");
+        }
     }
 }

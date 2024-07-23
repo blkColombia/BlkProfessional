@@ -6,9 +6,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Bulkmatic </title>
+    <title>Bienvenido - Bulkmatic Enterprise </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link href="Img/logotitulo.png" rel="shortcut icon" type="image/x-icon" />
+    <link rel="shortcut icon" href="Img/logo.png" type="image/x-icon" />
     <meta name="author" content="Videojuegos & Desarrollo">
     <meta name="description" content="Muestra de un formulario de acceso en HTML y CSS">
     <meta name="keywords" content="Formulario Acceso, Formulario de LogIn">

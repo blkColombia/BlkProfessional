@@ -1,4 +1,6 @@
 ﻿using BlkProfessional.Servicios;
+using BRL;
+using DCL;
 using Newtonsoft.Json;
 using System;
 using System.Data;
@@ -13,7 +15,17 @@ namespace BlkProfessional.Forms.Financiera.CEDIS
         protected void Page_Init(object sender, EventArgs e)
         {           
             ddlYear.SelectedValue = "2024";
-            ddlMonth.SelectedValue = "04";
+            string idCierre = Request.QueryString["IdCierre"];
+
+            GFCierreFinanciero obj = new GFCierreFinanciero();
+            obj.IdCierre = Convert.ToInt32(idCierre);
+            DataTable dtbMes = GFCierreFinanciero_BRL.SelectTable(obj, 1);
+            if (dtbMes.Rows.Count > 0)
+            {
+                ddlMonth.SelectedValue = dtbMes.Rows[0]["Mes"].ToString();
+            }
+
+
             btnResumen_Click(null,null);
         }
 
@@ -213,7 +225,7 @@ namespace BlkProfessional.Forms.Financiera.CEDIS
         protected void lnkMenu_Click(object sender, EventArgs e)
         {
             string usuario = Request.QueryString["usuario"];
-            Response.Redirect($"~/Forms/MainMenu/FrmMenuOperaciones.aspx?usuario={usuario}");
+            Response.Redirect($"~/Forms/MainMenu/FrmMenuFinanciera.aspx?usuario={usuario}");
         }
 
         protected void gvCierre_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -277,6 +289,14 @@ namespace BlkProfessional.Forms.Financiera.CEDIS
 
 
             }
+        }
+
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+
+            string usuario = Request.QueryString["usuario"];
+            string idCierre = Request.QueryString["IdCierre"];
+            Response.Redirect($"FrmCierreCedis.aspx?usuario={usuario}&IdCierre={idCierre}");
         }
     }
 }

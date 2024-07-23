@@ -23,7 +23,7 @@ namespace BlkProfessional.Forms.MainMenu
         protected void lnkDespachos_Click(object sender, EventArgs e)
         {
             string usuario = Request.QueryString["usuario"];
-            Response.Redirect($"~/Forms/Operaciones/FrmInformeDespachos.aspx?usuario={usuario}");
+            Response.Redirect($"~/Forms/Operaciones/FrmInformeLiquidacionMes.aspx?usuario={usuario}");
 
         }
 

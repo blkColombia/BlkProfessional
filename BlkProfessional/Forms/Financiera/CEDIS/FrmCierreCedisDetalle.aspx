@@ -123,6 +123,25 @@
                             </asp:GridView>
 
                     </div>
+
+                     <div class="col-md-12">
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                             
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <asp:Button ID="btnVolver" CssClass="btn btn-warning" OnClick="btnVolver_Click" runat="server" Text="Volver" />
+                                </div>
+                                <div class="col-sm-6">    
+       
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 

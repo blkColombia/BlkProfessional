@@ -69,12 +69,12 @@ namespace BlkProfessional.Forms.MainMenu
         protected global::System.Web.UI.WebControls.LinkButton lnkCedisTerceros;
 
         /// <summary>
-        /// Control lnkLiquidacion.
+        /// Control lnkCierreCartagena.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkLiquidacion;
+        protected global::System.Web.UI.WebControls.LinkButton lnkCierreCartagena;
     }
 }

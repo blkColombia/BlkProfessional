@@ -105,16 +105,13 @@
                      <div class="col-md-12">
                             <asp:GridView ID="gvTolvas" runat="server" AutoGenerateColumns="false" OnRowDataBound="gvTolvas_RowDataBound" CssClass="table table-bordered table-striped" OnRowCommand="gvTolvas_RowCommand">
                                 <Columns>
-                                    <asp:BoundField DataField="Terminal" HeaderText="Terminal" SortExpression="Terminal" />
+                                    <asp:BoundField DataField="CentrodeCosto" HeaderText="Centro de Costo" SortExpression="CentrodeCosto" />
+                                    <asp:BoundField DataField="Terminal" HeaderText="Terminal" SortExpression="Cliente" />
+                                    <asp:BoundField DataField="Almacen" HeaderText="Almacen" SortExpression="Almacen" />
                                     <asp:BoundField DataField="Cliente" HeaderText="Cliente" SortExpression="Cliente" />
-                                     <asp:BoundField DataField="Subcliente" HeaderText="Subcliente" SortExpression="Subcliente" />
-                                    <asp:BoundField DataField="TipoCuenta" HeaderText="TipoCuenta" SortExpression="TipoCuenta" />
-                                    <asp:BoundField DataField="Cuenta" HeaderText="Cuenta" SortExpression="Cuenta" />
-                                     <asp:BoundField DataField="Subcuenta" HeaderText="Subcuenta" SortExpression="Subcuenta" />
-                                    <asp:BoundField DataField="Observacion" HeaderText="Observacion" SortExpression="Observacion" />
-                                    <asp:BoundField DataField="PresupuestoMes" HeaderText="PresupuestoMes" SortExpression="PresupuestoMes" />
-                                    <asp:BoundField DataField="TotalEjecutadoMes" HeaderText="TotalEjecutadoMes" SortExpression="TotalEjecutadoMes" />
-                                    <asp:BoundField DataField="Segmento" HeaderText="Segmento" SortExpression="Segmento" />
+                                    <asp:BoundField DataField="Concepto" HeaderText="Concepto" SortExpression="Concepto" />
+                                    <asp:BoundField DataField="ValorIngreso" HeaderText="Total Ejecutado Mes" SortExpression="ValorIngreso" />
+               
                                 </Columns>
                             </asp:GridView>
 

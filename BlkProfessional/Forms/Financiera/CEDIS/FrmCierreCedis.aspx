@@ -28,20 +28,20 @@
                             <div class="form-group row">
                                 <label for="txtUsuarioCorreo" class="col-sm-4 col-form-label">Mes</label>
                                 <div class="col-sm-8">
-                                      <asp:DropDownList CssClass="form-control" Enabled="false" ID="ddlMonth" runat="server">
+                                      <asp:DropDownList CssClass="form-control"  ID="ddlMonth" runat="server">
                                         <asp:ListItem Value="0">-Seleccione Mes-</asp:ListItem>
-                                        <asp:ListItem Value="01">Enero</asp:ListItem>
+                                   <%--   <asp:ListItem Value="01">Enero</asp:ListItem>
                                           <asp:ListItem Value="02">Febrero</asp:ListItem>
-                                          <asp:ListItem Value="03">Marzo</asp:ListItem>
+                                          <asp:ListItem Value="03">Marzo</asp:ListItem>--%>
                                           <asp:ListItem Value="04">Abril</asp:ListItem>
                                           <asp:ListItem Value="05">Mayo</asp:ListItem>
-                                          <asp:ListItem Value="06">Junio</asp:ListItem>
-                                          <asp:ListItem Value="07">Julio</asp:ListItem>
-                                          <asp:ListItem Value="08">Agosto</asp:ListItem>
+                                     <asp:ListItem Value="06">Junio</asp:ListItem>
+                                         <asp:ListItem Value="07">Julio</asp:ListItem>
+                                        <%--        <asp:ListItem Value="08">Agosto</asp:ListItem>
                                           <asp:ListItem Value="09">Septiembre</asp:ListItem>
                                           <asp:ListItem Value="10">Octubre</asp:ListItem>
                                           <asp:ListItem Value="11">Noviembre</asp:ListItem>
-                                          <asp:ListItem Value="12">Diciembre</asp:ListItem>                                                                                 
+                                          <asp:ListItem Value="12">Diciembre</asp:ListItem>  --%>                                                                               
                                     </asp:DropDownList>
                                 </div>
                             </div>

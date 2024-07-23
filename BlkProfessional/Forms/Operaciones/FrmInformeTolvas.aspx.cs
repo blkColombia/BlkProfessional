@@ -191,7 +191,7 @@ namespace BlkProfessional.Forms.Operaciones
             StreamWriter sw = new StreamWriter(filePath, false, System.Text.Encoding.GetEncoding(1252));
             sw.Write(@"<!DOCTYPE HTML PUBLIC ""-//W3C//DTD HTML 4.0 Transitional//EN"">");
             sw.Write("<font style='font-size:10.0pt; font-family:Calibri;'>");
-            sw.Write("<BR><BR><BR>");
+            sw.Write("<br/>");         
             sw.Write("<Table border='1' bgColor='#ffffff' borderColor='#000000' cellSpacing='0' cellPadding='0' style='font-size:10.0pt; font-family:Calibri; background:white;'> <TR>");
             int columnscount = table.Columns.Count;
 

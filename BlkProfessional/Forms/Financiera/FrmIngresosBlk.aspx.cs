@@ -106,7 +106,7 @@ namespace BlkProfessional.Forms.Financiera
 
             string fecha = "";
             int dia = DateTime.DaysInMonth(Convert.ToInt32(year), Convert.ToInt32(mes));
-            fecha = dia.ToString() + "/" + mes + "/" + year;
+            fecha = mes +"/"+  dia.ToString() + "/" + year;
             return fecha;
         }
 
@@ -129,9 +129,8 @@ namespace BlkProfessional.Forms.Financiera
 
 
                 Weekly obj = new Weekly();
-                obj.Year = ddlYear.SelectedValue;
-                obj.Mes = ddlMonth.SelectedValue;
-                DataTable dtb = Weekly_BRL.SelectTable(obj, 1);
+                obj.FechaInicio = convertirFecha(ddlYear.SelectedValue, ddlMonth.SelectedValue);
+                DataTable dtb = Weekly_BRL.SelectTable(obj, 3);
 
                 if (dtb.Rows.Count > 0)
                     {
@@ -239,9 +238,8 @@ namespace BlkProfessional.Forms.Financiera
                 }
 
                 Weekly obj = new Weekly();
-                obj.Year = ddlYear.SelectedValue;
-                obj.Mes = ddlMonth.SelectedValue;
-                DataTable dtb = Weekly_BRL.SelectTable(obj,1);
+                obj.FechaInicio = convertirFecha(ddlYear.SelectedValue, ddlMonth.SelectedValue);
+                DataTable dtb = Weekly_BRL.SelectTable(obj,3);
                     if (dtb.Rows.Count > 0)
                     {
                         gvTolvas.DataSource = dtb;
@@ -259,21 +257,23 @@ namespace BlkProfessional.Forms.Financiera
             }
         }
 
+       
+
         protected void gvTolvas_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                decimal TotalIngresos = Convert.ToDecimal(e.Row.Cells[8].Text);
-                //decimal TotalCostoFijo = Convert.ToDecimal(e.Row.Cells[4].Text);
-                //decimal TotalCostosVariables = Convert.ToDecimal(e.Row.Cells[5].Text);
-                //decimal Utilidad = Convert.ToDecimal(e.Row.Cells[6].Text);
+            //if (e.Row.RowType == DataControlRowType.DataRow)
+            //{
+            //    decimal TotalIngresos = Convert.ToDecimal(e.Row.Cells[6].Text);
+            //    //decimal TotalCostoFijo = Convert.ToDecimal(e.Row.Cells[4].Text);
+            //    //decimal TotalCostosVariables = Convert.ToDecimal(e.Row.Cells[5].Text);
+            //    //decimal Utilidad = Convert.ToDecimal(e.Row.Cells[6].Text);
 
-                e.Row.Cells[8].Text = String.Format("${0:#,##0}", TotalIngresos);
-                //e.Row.Cells[4].Text = String.Format("${0:#,##0}", TotalCostoFijo);
-                //e.Row.Cells[5].Text = String.Format("${0:#,##0}", TotalCostosVariables);
-                //e.Row.Cells[6].Text = String.Format("${0:#,##0}", Utilidad);
+            //    e.Row.Cells[6].Text = String.Format("${0:#,##0}", TotalIngresos);
+            //    //e.Row.Cells[4].Text = String.Format("${0:#,##0}", TotalCostoFijo);
+            //    //e.Row.Cells[5].Text = String.Format("${0:#,##0}", TotalCostosVariables);
+            //    //e.Row.Cells[6].Text = String.Format("${0:#,##0}", Utilidad);
 
-            }
+            //}
         }
     } 
 }

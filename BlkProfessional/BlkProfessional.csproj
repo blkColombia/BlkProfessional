@@ -82,6 +82,10 @@
       <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.1.4.1\lib\net46\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="QRCoder, Version=1.5.1.0, Culture=neutral, PublicKeyToken=c4ed5b9ae8358a28, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.5.1\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
     <Reference Include="SixLabors.Fonts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
       <HintPath>..\packages\SixLabors.Fonts.1.0.0\lib\netstandard2.0\SixLabors.Fonts.dll</HintPath>
     </Reference>
@@ -217,10 +221,20 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Forms\Clientes\FrmInventarioCliente.aspx" />
     <Content Include="Forms\Financiera\CEDIS\FrmCierreCediAlm.aspx" />
     <Content Include="Forms\Financiera\CEDIS\FrmCierreCedis.aspx" />
     <Content Include="Forms\Financiera\CEDIS\FrmCierreCedisDetalle.aspx" />
     <Content Include="Forms\Financiera\CEDIS\FrmLiquidacionAlmTercero.aspx" />
+    <Content Include="Forms\Financiera\CTG\FrmCierreCTG.aspx" />
+    <Content Include="Forms\Financiera\CTG\FrmCierreCTGAEspec.aspx" />
+    <Content Include="Forms\Financiera\CTG\FrmCierreCTGAlm.aspx" />
+    <Content Include="Forms\Financiera\CTG\FrmCierreCTGAlmCPA.aspx" />
+    <Content Include="Forms\Financiera\CTG\FrmCierreCTGDetalle.aspx" />
+    <Content Include="Forms\Financiera\CTG\FrmCierreCTGEnsacado.aspx" />
+    <Content Include="Forms\Financiera\CTG\FrmCierreCTGEnsaEsse.aspx" />
+    <Content Include="Forms\Financiera\CTG\FrmCierreCTGFraccion.aspx" />
+    <Content Include="Forms\Financiera\CTG\FrmCierreCTGImportacion.aspx" />
     <Content Include="Forms\Financiera\FrmCierreBarranca.aspx" />
     <Content Include="Forms\Financiera\FrmCierreBarrancaAlm.aspx" />
     <Content Include="Forms\Financiera\FrmCierreBarrancaDetalle.aspx" />
@@ -268,6 +282,7 @@
     <Content Include="Img\Infraestructura.jpeg" />
     <Content Include="Img\Lider.png" />
     <Content Include="Img\logo.png" />
+    <Content Include="Img\logotitulo.png" />
     <Content Include="Img\OperacionesBulkmatic.jpg" />
     <Content Include="Img\Procesos.jpeg" />
     <Content Include="Img\sac.png" />
@@ -345,6 +360,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Clientes\FrmInventarioCliente.aspx.cs">
+      <DependentUpon>FrmInventarioCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Clientes\FrmInventarioCliente.aspx.designer.cs">
+      <DependentUpon>FrmInventarioCliente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Financiera\CEDIS\FrmCierreCediAlm.aspx.cs">
       <DependentUpon>FrmCierreCediAlm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -372,6 +394,69 @@
     </Compile>
     <Compile Include="Forms\Financiera\CEDIS\FrmLiquidacionAlmTercero.aspx.designer.cs">
       <DependentUpon>FrmLiquidacionAlmTercero.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financiera\CTG\FrmCierreCTG.aspx.cs">
+      <DependentUpon>FrmCierreCTG.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Financiera\CTG\FrmCierreCTG.aspx.designer.cs">
+      <DependentUpon>FrmCierreCTG.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financiera\CTG\FrmCierreCTGAEspec.aspx.cs">
+      <DependentUpon>FrmCierreCTGAEspec.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Financiera\CTG\FrmCierreCTGAEspec.aspx.designer.cs">
+      <DependentUpon>FrmCierreCTGAEspec.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financiera\CTG\FrmCierreCTGAlm.aspx.cs">
+      <DependentUpon>FrmCierreCTGAlm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Financiera\CTG\FrmCierreCTGAlm.aspx.designer.cs">
+      <DependentUpon>FrmCierreCTGAlm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financiera\CTG\FrmCierreCTGAlmCPA.aspx.cs">
+      <DependentUpon>FrmCierreCTGAlmCPA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Financiera\CTG\FrmCierreCTGAlmCPA.aspx.designer.cs">
+      <DependentUpon>FrmCierreCTGAlmCPA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financiera\CTG\FrmCierreCTGDetalle.aspx.cs">
+      <DependentUpon>FrmCierreCTGDetalle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Financiera\CTG\FrmCierreCTGDetalle.aspx.designer.cs">
+      <DependentUpon>FrmCierreCTGDetalle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financiera\CTG\FrmCierreCTGEnsacado.aspx.cs">
+      <DependentUpon>FrmCierreCTGEnsacado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Financiera\CTG\FrmCierreCTGEnsacado.aspx.designer.cs">
+      <DependentUpon>FrmCierreCTGEnsacado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financiera\CTG\FrmCierreCTGEnsaEsse.aspx.cs">
+      <DependentUpon>FrmCierreCTGEnsaEsse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Financiera\CTG\FrmCierreCTGEnsaEsse.aspx.designer.cs">
+      <DependentUpon>FrmCierreCTGEnsaEsse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financiera\CTG\FrmCierreCTGFraccion.aspx.cs">
+      <DependentUpon>FrmCierreCTGFraccion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Financiera\CTG\FrmCierreCTGFraccion.aspx.designer.cs">
+      <DependentUpon>FrmCierreCTGFraccion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financiera\CTG\FrmCierreCTGImportacion.aspx.cs">
+      <DependentUpon>FrmCierreCTGImportacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Financiera\CTG\FrmCierreCTGImportacion.aspx.designer.cs">
+      <DependentUpon>FrmCierreCTGImportacion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Financiera\FrmCierreBarranca.aspx.cs">
       <DependentUpon>FrmCierreBarranca.aspx</DependentUpon>
@@ -656,6 +741,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Plantillas\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

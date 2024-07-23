@@ -1,4 +1,6 @@
 ﻿using BlkProfessional.Servicios;
+using BRL;
+using DCL;
 using Newtonsoft.Json;
 using System;
 using System.Data;
@@ -17,8 +19,19 @@ namespace BlkProfessional.Forms.Financiera.CEDIS
                 Action = 3
             };
             ddlYear.SelectedValue = "2024";
-            ddlMonth.SelectedValue = "04";
-           
+            
+
+            string idCierre = Request.QueryString["IdCierre"];
+
+            GFCierreFinanciero obj = new GFCierreFinanciero();
+            obj.IdCierre = Convert.ToInt32(idCierre);
+            DataTable dtbMes = GFCierreFinanciero_BRL.SelectTable(obj, 1);
+            if (dtbMes.Rows.Count > 0)
+            {
+                ddlMonth.SelectedValue = dtbMes.Rows[0]["Mes"].ToString();
+            }
+
+
             string jsonString = JsonConvert.SerializeObject(objeto);
             var mensaje = Servicios.ServicesNavisionIntegracion.InvokeService("DatosCliente", jsonString);
             ResponseItemLedgerEntry listaObjetos = JsonConvert.DeserializeObject<ResponseItemLedgerEntry>(mensaje);
@@ -225,17 +238,20 @@ namespace BlkProfessional.Forms.Financiera.CEDIS
         protected void lnkMenu_Click(object sender, EventArgs e)
         {
             string usuario = Request.QueryString["usuario"];
-            Response.Redirect($"~/Forms/MainMenu/FrmMenuOperaciones.aspx?usuario={usuario}");
+            Response.Redirect($"~/Forms/MainMenu/FrmMenuFinanciera.aspx?usuario={usuario}");
         }
 
         protected void gvCierre_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+
+            
             if (e.CommandName == "Visualizar")
             {
+                string idCierre = Request.QueryString["IdCierre"];
                 // Aquí puedes obtener el CommandArgument que es el IdTarea
-                int idCierre = Convert.ToInt32(e.CommandArgument);
+                int idCierreDetalle = Convert.ToInt32(e.CommandArgument);
                 string usuario = Request.QueryString["usuario"];
-                Response.Redirect($"FrmLiquidacionAlmTercero.aspx?usuario={usuario}&IdCierreDetalle={idCierre}");
+                Response.Redirect($"FrmLiquidacionAlmTercero.aspx?usuario={usuario}&IdCierreDetalle={idCierreDetalle}&IdCierre={idCierre}");
                 // Puedes realizar acciones adicionales aquí según el IdTarea seleccionado
                 // Por ejemplo, puedes redirigir a una nueva página o realizar alguna lógica específica.
             }
@@ -297,7 +313,7 @@ namespace BlkProfessional.Forms.Financiera.CEDIS
 
             string usuario = Request.QueryString["usuario"];
             string idCierre = Request.QueryString["IdCierre"];
-            Response.Redirect($"FrmCierreBarrancaDetalle.aspx?usuario={usuario}&IdCierre={idCierre}");
+            Response.Redirect($"FrmCierreCedisDetalle.aspx?usuario={usuario}&IdCierre={idCierre}");
         }
     }
 }

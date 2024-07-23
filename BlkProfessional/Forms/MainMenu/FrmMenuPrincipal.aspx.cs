@@ -11,6 +11,23 @@ namespace BlkProfessional.Forms.MainMenu
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string cliente = "0";
+            cliente = Request.QueryString["cliente"];
+            if (cliente=="1") {
+                menGestionHumana.Visible = false;
+                menFinanciera.Visible = false;
+                menOperaciones.Visible = false;
+                menSac.Visible = false;
+                menClientes.Visible = true;
+            }
+            else {
+                menGestionHumana.Visible = true;
+                menFinanciera.Visible = true;
+                menOperaciones.Visible = true;
+                menSac.Visible = true;
+                menClientes.Visible = false;
+
+            }
 
         }
 
@@ -59,6 +76,12 @@ namespace BlkProfessional.Forms.MainMenu
         {
             string usuario = Request.QueryString["usuario"];
             Response.Redirect($"~/Forms/MainMenu/FrmMenuFinanciera.aspx?usuario={usuario}");
+        }
+
+        protected void lnkClientes_Click(object sender, EventArgs e)
+        {
+            string usuario = Request.QueryString["usuario"];
+            Response.Redirect($"~/Forms/Clientes/FrmInventarioCliente.aspx?usuario={usuario}");
         }
     }
 }

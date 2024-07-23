@@ -7,14 +7,15 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> Bulkmatic</title>
+    <title><%: Page.Title %> Bienvenido - Bulkmatic Enterprise</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
     <webopt:BundleReference runat="server" Path="~/Content/css" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="Img/logotitulo.png" rel="shortcut icon" type="image/x-icon" />
+     <link rel="shortcut icon" href="Img/logo.png" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <style>
@@ -54,7 +55,10 @@
         display: none;
     }
 
-
+    .perfil {
+        color:#F56600;
+        font-weight:bold;
+    }
 
     .floating-button {
         display: none;
@@ -120,8 +124,8 @@
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <%--<li><a href="#"><span class="glyphicon glyphicon-user"></span> Mi Perfil</a></li>--%>
-                    <li><a href="<%= ResolveUrl("~/Login.aspx") %>"><span class="glyphicon glyphicon-log-in"></span>Salir </a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-user perfil"></span> <asp:Label CssClass="perfil" runat="server" ID="lblUser"> </asp:Label></a></li>
+                    <li><a style="color:#F56600;font-weight:bold;" href="<%= ResolveUrl("~/Login.aspx") %>"><span class="glyphicon glyphicon-log-in perfil"> </span>  Salir  </a></li>
                 </ul>
             </div>
 

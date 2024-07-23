@@ -33,13 +33,13 @@ namespace BlkProfessional.Forms.Operaciones
         protected global::System.Web.UI.WebControls.DropDownList ddlMonth;
 
         /// <summary>
-        /// Control txtCliente.
+        /// Control ddlCliente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCliente;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCliente;
 
         /// <summary>
         /// Control txtDescripcionCliente.
@@ -60,13 +60,13 @@ namespace BlkProfessional.Forms.Operaciones
         protected global::System.Web.UI.WebControls.DropDownList ddl_Terminal;
 
         /// <summary>
-        /// Control ddlLocation.
+        /// Control txtPedido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlLocation;
+        protected global::System.Web.UI.WebControls.TextBox txtPedido;
 
         /// <summary>
         /// Control btnDescargar.
@@ -76,5 +76,14 @@ namespace BlkProfessional.Forms.Operaciones
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnDescargar;
+
+        /// <summary>
+        /// Control btnDescargarPdf.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDescargarPdf;
     }
 }

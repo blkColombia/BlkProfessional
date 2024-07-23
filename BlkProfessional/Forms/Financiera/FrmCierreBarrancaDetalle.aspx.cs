@@ -4,6 +4,8 @@ using System;
 using System.Data;
 using System.IO;
 using System.Web.UI.WebControls;
+using DCL;
+using BRL;
 
 namespace BlkProfessional.Forms.Financiera
 {
@@ -17,9 +19,18 @@ namespace BlkProfessional.Forms.Financiera
                 Action = 3
             };
             ddlYear.SelectedValue = "2024";
-            ddlMonth.SelectedValue = "04";
             txtCliente.Text = "CTE0001";
             
+            string idCierre = Request.QueryString["IdCierre"];
+
+            GFCierreFinanciero obj = new GFCierreFinanciero();
+            obj.IdCierre = Convert.ToInt32(idCierre);
+            DataTable dtbMes = GFCierreFinanciero_BRL.SelectTable(obj,1);
+            if (dtbMes.Rows.Count >0) {
+                ddlMonth.SelectedValue = dtbMes.Rows[0]["Mes"].ToString();
+            }
+            
+
             txtCliente_TextChanged(null,null);
             string jsonString = JsonConvert.SerializeObject(objeto);
             var mensaje = Servicios.ServicesNavisionIntegracion.InvokeService("DatosCliente", jsonString);
@@ -226,7 +237,7 @@ namespace BlkProfessional.Forms.Financiera
         protected void lnkMenu_Click(object sender, EventArgs e)
         {
             string usuario = Request.QueryString["usuario"];
-            Response.Redirect($"~/Forms/MainMenu/FrmMenuOperaciones.aspx?usuario={usuario}");
+            Response.Redirect($"~/Forms/MainMenu/FrmMenuFinanciera.aspx?usuario={usuario}");
         }
 
         protected void gvCierre_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -252,6 +263,7 @@ namespace BlkProfessional.Forms.Financiera
         {
             try
             {
+                string idCierre = Request.QueryString["IdCierre"];
 
                 if (ddlYear.SelectedValue == "0")
                 {
@@ -267,6 +279,7 @@ namespace BlkProfessional.Forms.Financiera
 
                 DCL.GFCierreFinancieroDetalle objeto = new DCL.GFCierreFinancieroDetalle
                 {
+                    IdCierre = Convert.ToInt32(idCierre),
                     Terminal = ddl_Terminal.SelectedValue
                 };
                 DataTable dtb = BRL.GFCierreFinancieroDetalle_BRL.SelectTable(objeto, 0);
@@ -291,11 +304,17 @@ namespace BlkProfessional.Forms.Financiera
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                decimal TotalValor = Convert.ToDecimal(e.Row.Cells[1].Text);
-                e.Row.Cells[1].Text = String.Format("${0:#,##0}", TotalValor);
+                //decimal TotalValor = Convert.ToDecimal(e.Row.Cells[1].Text);
+                //e.Row.Cells[1].Text = String.Format("${0:#,##0}", TotalValor);
        
 
             }
+        }
+
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            string usuario = Request.QueryString["usuario"];
+            Response.Redirect($"FrmCierreBarranca.aspx?usuario={usuario}");
         }
     }
 }

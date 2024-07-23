@@ -1,4 +1,6 @@
 ﻿using BlkProfessional.Servicios;
+using BRL;
+using DCL;
 using Newtonsoft.Json;
 using System;
 using System.Data;
@@ -17,8 +19,19 @@ namespace BlkProfessional.Forms.Financiera
                 Action = 3
             };
             ddlYear.SelectedValue = "2024";
-            ddlMonth.SelectedValue = "04";
+     
             txtCliente.Text = "CTE0001";
+
+            string idCierre = Request.QueryString["IdCierre"];
+
+            GFCierreFinanciero obj = new GFCierreFinanciero();
+            obj.IdCierre = Convert.ToInt32(idCierre);
+            DataTable dtbMes = GFCierreFinanciero_BRL.SelectTable(obj, 1);
+            if (dtbMes.Rows.Count > 0)
+            {
+                ddlMonth.SelectedValue = dtbMes.Rows[0]["Mes"].ToString();
+            }
+
 
             txtCliente_TextChanged(null, null);
             string jsonString = JsonConvert.SerializeObject(objeto);
@@ -226,17 +239,18 @@ namespace BlkProfessional.Forms.Financiera
         protected void lnkMenu_Click(object sender, EventArgs e)
         {
             string usuario = Request.QueryString["usuario"];
-            Response.Redirect($"~/Forms/MainMenu/FrmMenuOperaciones.aspx?usuario={usuario}");
+            Response.Redirect($"~/Forms/MainMenu/FrmMenuFinanciera.aspx?usuario={usuario}");
         }
 
         protected void gvCierre_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "Visualizar")
             {
+                string idCierre = Request.QueryString["IdCierre"];
                 // Aquí puedes obtener el CommandArgument que es el IdTarea
-                int idCierre = Convert.ToInt32(e.CommandArgument);
+                int idCierreDetalle = Convert.ToInt32(e.CommandArgument);
                 string usuario = Request.QueryString["usuario"];
-                Response.Redirect($"FrmLiquidacionAlmCedi.aspx?usuario={usuario}&IdCierreDetalle={idCierre}");
+                Response.Redirect($"FrmLiquidacionAlmCedi.aspx?usuario={usuario}&IdCierreDetalle={idCierreDetalle}&IdCierre={idCierre}");
                 // Puedes realizar acciones adicionales aquí según el IdTarea seleccionado
                 // Por ejemplo, puedes redirigir a una nueva página o realizar alguna lógica específica.
             }
@@ -259,8 +273,10 @@ namespace BlkProfessional.Forms.Financiera
                     return;
                 }
 
+                string idCierre = Request.QueryString["IdCierre"];
                 DCL.GFCierreFinancieroDetalle objeto = new DCL.GFCierreFinancieroDetalle
                 {
+                    IdCierre = Convert.ToInt32(idCierre),
                     Terminal = ddl_Terminal.SelectedValue
                 };
                 DataTable dtb = BRL.GFCierreFinancieroDetalle_BRL.SelectTable(objeto, 2);

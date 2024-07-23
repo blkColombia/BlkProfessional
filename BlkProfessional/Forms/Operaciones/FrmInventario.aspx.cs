@@ -126,14 +126,14 @@ namespace BlkProfessional.Forms.Operaciones
                 if (dtb.Rows.Count > 0)
                 {
 
-                    string rutarchivo = Server.MapPath("~/InformeLiquidacion.xls");
+                    string rutarchivo = Server.MapPath("~/InformeInventario.xls");
                     ExportToExcel(dtb, rutarchivo);
 
                     System.Web.HttpResponse response = System.Web.HttpContext.Current.Response;
                     response.ClearContent();
                     response.Clear();
                     response.ContentType = "application/vnd.xls";
-                    response.AddHeader("Content-Disposition", "attachment; filename=" + "InformeLiquidacion" + ".xls" + ";");
+                    response.AddHeader("Content-Disposition", "attachment; filename=" + "InformeInventario" + ".xls" + ";");
                     response.TransmitFile(rutarchivo);
                     response.Flush();
 

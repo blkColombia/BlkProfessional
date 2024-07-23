@@ -43,7 +43,26 @@ namespace BlkProfessional.Forms.Financiera
             if (dtbCierre.Rows.Count > 0) {
 
                 ddlYear.SelectedValue = "2024";
-                ddlMonth.SelectedValue = "04";
+
+                string idCierre = Request.QueryString["IdCierre"];
+
+                GFCierreFinanciero obj = new GFCierreFinanciero();
+                obj.IdCierre = Convert.ToInt32(idCierre);
+                DataTable dtbMes = GFCierreFinanciero_BRL.SelectTable(obj, 1);
+                if (dtbMes.Rows.Count > 0)
+                {
+                    ddlMonth.SelectedValue = dtbMes.Rows[0]["Mes"].ToString();
+                    if (dtbMes.Rows[0]["Estado"].ToString() != "Abierto")
+                    {
+                        btnEnvar.Enabled = false;
+                    }
+                    else
+                    {
+                        btnEnvar.Enabled = true;
+                    }
+                }
+
+
                 ddl_Terminal.SelectedValue = dtbCierre.Rows[0][1].ToString();
                 ddl_Terminal_SelectedIndexChanged(null,null);
                 ddlLocation.SelectedValue = dtbCierre.Rows[0][2].ToString();
@@ -186,6 +205,26 @@ namespace BlkProfessional.Forms.Financiera
                 obj.UsuarioActualizacion = usuario;
                 GFCierreFinancieroDetalle_BRL.InsertarOrUpdate(obj, 4);
 
+                DCL.GFCierreFinancieroDetalle objDescarga = new DCL.GFCierreFinancieroDetalle();
+                objDescarga.IdCierreDetalle = Convert.ToInt64(idCierreDetalle);
+                DataTable dtbDescarga = GFCierreFinancieroDetalle_BRL.SelectTable(objDescarga, 20);
+                if (dtbDescarga.Rows.Count>0) {
+                    //DCL.GFCierreFinancieroDetalle objActDesc = new DCL.GFCierreFinancieroDetalle();
+                    //objActDesc.Almacen = dtbDescarga.Rows[0]["Almacen"].ToString();
+                    //objActDesc.Terminal = dtbDescarga.Rows[0]["Terminal"].ToString();
+                    //objActDesc.CodCliente = dtbDescarga.Rows[0]["CodCliente"].ToString();
+                    //objActDesc.IdCierre = Convert.ToInt32(dtbDescarga.Rows[0]["IdCierre"].ToString());
+                    //DataTable dtbCierreDescargue = GFCierreFinancieroDetalle_BRL.SelectTable(objActDesc, 19);
+                    //if (dtbCierreDescargue.Rows.Count > 0) {
+                    //    DCL.GFCierreFinancieroDetalle objDescActD = new DCL.GFCierreFinancieroDetalle();
+                    //    objDescActD.IdCierreDetalle = Convert.ToInt64(dtbCierreDescargue.Rows[0]["IdCierreDetalle"].ToString());
+                    //    objDescActD.ValorConcepto = txtTotalIngresosDesc.Text;
+                    //    objDescActD.UsuarioActualizacion = usuario;
+                    //    GFCierreFinancieroDetalle_BRL.InsertarOrUpdate(obj, 4); //se actualiza descarga
+                    //}
+                }
+
+
                 DCL.GFCierreFinancieroDetalle objSumatoria = new DCL.GFCierreFinancieroDetalle();
                 objSumatoria.IdCierreDetalle = Convert.ToInt64(idCierreDetalle);
                 DataTable dtb = GFCierreFinancieroDetalle_BRL.SelectTable(objSumatoria, 5);
@@ -273,7 +312,7 @@ namespace BlkProfessional.Forms.Financiera
         protected void lnkMenu_Click(object sender, EventArgs e)
         {
             string usuario = Request.QueryString["usuario"];
-            Response.Redirect($"~/Forms/MainMenu/FrmMenuOperaciones.aspx?usuario={usuario}");
+            Response.Redirect($"~/Forms/MainMenu/FrmMenuFinanciera.aspx?usuario={usuario}");
         }
 
         protected void btnVolver_Click(object sender, EventArgs e)
@@ -591,7 +630,7 @@ namespace BlkProfessional.Forms.Financiera
                 {
                     tarifaAlmacenamiento = Convert.ToDecimal(txtTarifaAlmacenamiento.Text.Replace("$", ""));
 
-                    decimal promedio = (Math.Abs(totalSaldo) / fechaMaxima) / 1000;
+                    decimal promedio = Convert.ToInt64(Math.Truncate(Math.Abs(totalSaldo) / fechaMaxima) / 1000);
                     lblTotalAlmacenamiento.Text = String.Format("${0:#,##0}", promedio * tarifaAlmacenamiento);
                     lblTotalSaldo.Text = String.Format("{0:N3}", promedio);
                     // lblTotalDescarga.Text = String.Format("${0:#,##0}", lblTotalDescarga.Text);

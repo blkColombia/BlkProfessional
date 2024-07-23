@@ -33,6 +33,33 @@ namespace BlkProfessional.Forms.Financiera.CEDIS
         protected global::System.Web.UI.WebControls.DropDownList ddlYear;
 
         /// <summary>
+        /// Control txtTelefono.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTelefono;
+
+        /// <summary>
+        /// Control txtDireccion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDireccion;
+
+        /// <summary>
+        /// Control txtCiudad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCiudad;
+
+        /// <summary>
         /// Control ddlMonth.
         /// </summary>
         /// <remarks>
@@ -123,13 +150,22 @@ namespace BlkProfessional.Forms.Financiera.CEDIS
         protected global::System.Web.UI.WebControls.TextBox txtTipoLiquidacion;
 
         /// <summary>
-        /// Control TextBox2.
+        /// Control rdbGenerarLiq.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdbGenerarLiq;
+
+        /// <summary>
+        /// Control rdbTipoDocumento.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rdbTipoDocumento;
 
         /// <summary>
         /// Control btnDescargar.

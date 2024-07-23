@@ -138,12 +138,23 @@
             }
     </style>
 
+    <script>
+        function hideElement(elementId) {
+            var element = document.getElementById(elementId);
+            if (element) {
+                element.style.display = 'none';
+            }
+
+    </script>
+
     <div class="col">
         <h5 style="padding: 20px; text-align: left; color: orange; font-weight: bold; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Menu Principal</h5>
     </div>
 
+
+
     <div class="grid-container">
-        <div class="grid-item">
+        <div class="grid-item" runat="server" id="menGestionHumana">
             <div class="delete_class">
                 <div class="card_main">
                     <div class="post_header">
@@ -161,7 +172,7 @@
             </div>
 
         </div>
-        <div class="grid-item" >
+        <div class="grid-item" runat="server" id="menSac">
             <div class="delete_class" >
                 <div class="card_main">
                     <div class="post_header">
@@ -178,7 +189,7 @@
             </div>
 
         </div>
-        <div class="grid-item" >
+        <div class="grid-item" runat="server" id="menOperaciones" >
             <div class="delete_class" >
                 <div class="card_main">
                     <div class="post_header">
@@ -196,7 +207,7 @@
             </div>
 
         </div>
-        <div class="grid-item">
+        <div class="grid-item" runat="server" id="menFinanciera">
             <div class="delete_class">
                 <div class="card_main">
                     <div class="post_header">
@@ -213,6 +224,25 @@
             </div>
 
         </div>
+
+           <div class="grid-item" runat="server" id="menClientes" style="width:60% !important;">
+            <div class="delete_class">
+                <div class="card_main">
+                    <div class="post_header">
+                        <img class="card_image" src="../../Img/gestionFinanciera.jpg" />
+                        <asp:LinkButton runat="server" ID="lnkClientes" OnClick="lnkClientes_Click"><p class="txt_user">Clientes</p></asp:LinkButton>
+                        <p class="txt_user_description">Modulo Principal</p>
+                    </div>
+                    <div class="card_content">
+                        <h1 class="txt_title">Modulo Clientes</h1>
+                        <p class="txt_article">En este modulo encontraras todo lo referente a tu gestion en bulkmatic</p>
+                    </div>
+                    <div class="box"></div>
+                </div>
+            </div>
+
+        </div>
+
         <div class="grid-item">
             <div class="delete_class" style="display:none;">
                 <div class="card_main">

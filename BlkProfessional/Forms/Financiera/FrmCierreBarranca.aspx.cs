@@ -22,7 +22,7 @@ namespace BlkProfessional.Forms.Financiera
             ResponseItemLedgerEntry listaObjetos = JsonConvert.DeserializeObject<ResponseItemLedgerEntry>(mensaje);
             DataTable dtb = listaObjetos.data;
             ddlYear.SelectedValue = "2024";
-            ddlMonth.SelectedValue = "04";
+          //  ddlMonth.SelectedValue = "04";
             LlenarDropdowns(dtb, ddl_Terminal, new string[] { "CodigoTerminal", "CodigoTerminal" });
         }
 
@@ -222,7 +222,7 @@ namespace BlkProfessional.Forms.Financiera
         protected void lnkMenu_Click(object sender, EventArgs e)
         {
             string usuario = Request.QueryString["usuario"];
-            Response.Redirect($"~/Forms/MainMenu/FrmMenuOperaciones.aspx?usuario={usuario}");
+            Response.Redirect($"~/Forms/MainMenu/FrmMenuFinanciera.aspx?usuario={usuario}");
         }
 
         protected void gvCierre_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -258,7 +258,8 @@ namespace BlkProfessional.Forms.Financiera
                 DCL.GFCierreFinanciero objeto = new DCL.GFCierreFinanciero
                 {
                     Terminal = ddl_Terminal.SelectedValue,
-                    FechaInicial = convertirFecha(ddlYear.SelectedValue, ddlMonth.SelectedValue)
+                    FechaInicial = convertirFecha(ddlYear.SelectedValue, ddlMonth.SelectedValue),
+                    FechaCierre = convertirFecha(ddlYear.SelectedValue, ddlMonth.SelectedValue),
                 };
                 DataTable dtb = BRL.GFCierreFinanciero_BRL.SelectTable(objeto,0);
                 if (dtb.Rows.Count > 0 )

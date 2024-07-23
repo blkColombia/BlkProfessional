@@ -103,7 +103,7 @@
                     <div class="col-md-12">
                         <asp:GridView ID="gvCierre" runat="server" AutoGenerateColumns="false" OnRowDataBound="gvCierre_RowDataBound" CssClass="table table-bordered table-striped" OnRowCommand="gvCierre_RowCommand">
                             <Columns>
-                                <asp:BoundField DataField="CodCliente" HeaderText="CodCliente" SortExpression="CodCliente" />
+                                <asp:BoundField DataField="DescCliente" HeaderText="CodCliente" SortExpression="CodCliente" />
                                 <asp:BoundField DataField="Concepto" HeaderText="Concepto" SortExpression="Concepto" />
                                 <asp:BoundField DataField="Terminal" HeaderText="Terminal" SortExpression="Terminal" />
                                 <asp:BoundField DataField="Almacen" HeaderText="Almacen" SortExpression="Almacen" />

@@ -227,17 +227,17 @@
             </div>
 
         </div>
-        <div class="grid-item" style="display:none;">
+        <div class="grid-item">
             <div class="delete_class">
                 <div class="card_main">
                     <div class="post_header">
                         <img class="card_image" src="../../Img/Tecnologia.png" />
-                          <asp:LinkButton runat="server" ID="lnkLiquidacion" OnClick="lnkLiquidacion_Click"><p class="txt_user">Liquidacion Almacenamiento</p></asp:linkbutton>
+                          <asp:LinkButton runat="server" ID="lnkCierreCartagena" OnClick="lnkCierreCartagena_Click"><p class="txt_user">Cierre Cartagena</p></asp:linkbutton>
                         <p class="txt_user_description">Modulo</p>
                     </div>
                     <div class="card_content">
-                        <h1 class="txt_title">Modulo de Liquidaciones</h1>
-                        <p class="txt_article">En este modulo encontraras todo lo referente a la liquidacion de almacenamiento y descarga bulkmatic</p>
+                        <h1 class="txt_title">Modulo Cierre Cartagena</h1>
+                        <p class="txt_article">En este modulo encontraras todo lo referente al cierre de cartagena</p>
                     </div>
                     <div class="box"></div>
                 </div>

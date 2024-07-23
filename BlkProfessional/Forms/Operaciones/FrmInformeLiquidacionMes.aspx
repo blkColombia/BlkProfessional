@@ -2,11 +2,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container">
         <br />
-        <h1 style="text-align: center;">Informes de Almacenamiento Liquidacion Mes Fraccion</h1>
+        <h1 style="text-align: center;">Informes Liquidacion por Cliente</h1>
         <br />
         <div class="panel panel-default">
             <div class="panel-heading">
-                <label class="col-form-label">Informes de Almacenamiento Liquidacion Mes Fraccion</label>
+                <label class="col-form-label">Informes de Liquidacion por Cliente</label>
             </div>
             <div class="panel-body">
                 <div class="row" style="padding: 10px;">
@@ -16,9 +16,7 @@
                                 <label for="txtUsuario" class="col-sm-4 col-form-label">Año </label>
                                 <div class="col-sm-8">
                                      <asp:DropDownList CssClass="form-control" ID="ddlYear" runat="server">
-                                        <asp:ListItem Value="0">-Seleccione Movimiento-</asp:ListItem>
-                                        <asp:ListItem Value="2022">2022</asp:ListItem>
-                                        <asp:ListItem Value="2023">2023</asp:ListItem>           
+                                        <asp:ListItem Value="0">-Seleccione Movimiento-</asp:ListItem>        
                                         <asp:ListItem Value="2024">2024</asp:ListItem>  
                                     </asp:DropDownList>
                                 </div>
@@ -53,7 +51,7 @@
                                 <label for="txtPassword" class="col-sm-4 col-form-label">Cliente</label>
                                 <div class="col-sm-8">
 
-                                     <asp:TextBox ID="txtCliente" AutoPostBack="true" placeholder="Seleccion Cliente" OnTextChanged="txtCliente_TextChanged" CssClass="form-control"  style="width: 100% !important;" runat="server"></asp:TextBox>
+                             <asp:DropDownList ID="ddlCliente"  OnSelectedIndexChanged="ddlCliente_SelectedIndexChanged" runat="server" AutoPostBack="true" CssClass="form-control" ></asp:DropDownList>      
                                 </div>
                             </div>
                         </div>
@@ -75,14 +73,15 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                         <div class="col-sm-6">
                             <div class="form-group row">
-                                <label for="cmbLocation" class="col-sm-4 col-form-label">Almacen</label>
+                                <label for="cmbPedido" class="col-sm-4 col-form-label">Numero Pedido</label>
                                 <div class="col-sm-8">
-                                         <asp:DropDownList ID="ddlLocation" runat="server" CssClass="form-control" ></asp:DropDownList>
+                                    <asp:TextBox ID="txtPedido" placeholder="Numero Pedido" CssClass="form-control"  style="width: 100% !important;" runat="server"></asp:TextBox>
                                 </div>
                             </div>
                         </div>
+
                     </div>              
                     <div class="col-md-12">
                         <div class="col-sm-6">
@@ -96,7 +95,7 @@
                                     <asp:Button ID="btnDescargar" CssClass="btn btn-warning" OnClick="btnDescargar_Click" runat="server" Text="Descargar" />
                                 </div>
                                 <div class="col-sm-6">  
-                                      <%--  <asp:Button ID="btnDescargarPdf" CssClass="btn btn-warning" OnClick="btnDescargarPdf_Click" runat="server" Text="Descargar Pdf" />--%>
+                                        <asp:Button ID="btnDescargarPdf" CssClass="btn btn-warning" OnClick="btnDescargarPdf_Click" runat="server" Text="Descargar Pdf" />
                                 </div>
                             </div>
                         </div>

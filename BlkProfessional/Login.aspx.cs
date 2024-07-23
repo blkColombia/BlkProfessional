@@ -35,7 +35,12 @@ namespace BlkProfessional
             if (dtb.Rows.Count > 0)
             {
                 string usuario = txtLogueo.Value;
-                Response.Redirect($"~/Forms/MainMenu/FrmMenuPrincipal.aspx?usuario={usuario}");
+                if (dtb.Rows[0]["Cargo"].ToString() == "Cliente") {
+                    Response.Redirect($"~/Forms/MainMenu/FrmMenuPrincipal.aspx?usuario={usuario}&cliente=1");
+                }
+                else {
+                    Response.Redirect($"~/Forms/MainMenu/FrmMenuPrincipal.aspx?usuario={usuario}&cliente=0");
+                }
             }
             else {
                 MostrarMensaje("Usuario y contrasena incorrecta");
